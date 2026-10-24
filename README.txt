@@ -1,4 +1,4 @@
-I- Nom de l'Equipe : Aurora
+I- Nom de l'Equipe : TermSync
 
 II- Noms et numéro des membres :
 - Nathan Taka Tsaga - 300466684
