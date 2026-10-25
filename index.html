@@ -1,21 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CourseSync</title>
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages/home.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accueil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/pages/home.css">
+  <script src="./js/pages/home.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <img src="" alt="logo" class="site-logo">
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="logo">
+        <span class="logo__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>
+        </span>
+        <span class="logo__text">[Logo]</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="./pages/features.html">Fonctionnalités</a>
+        <a href="./pages/solutions.html">Solutions</a>
+        <a href="./pages/pricing.html">Tarifs</a>
+        <a href="./pages/team.html">Équipe</a>
+      </nav>
+
+      <button class="menu-btn" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111019" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
   </header>
-  <main></main>
-  <footer class="site-footer"></footer>
-  <script src="js/main.js"></script>
-  <script src="js/pages/home.js"></script>
+
+  <main class="hero">
+
+    <section class="hero__text">
+      <span class="badge">Disponible sur mobile, tablette et ordinateur</span>
+      <h1>Votre application, <span class="accent">sur tous vos écrans.</span></h1>
+      <p>Il s’agit d’un travail d’équipe réalisé dans le cadre du cours <strong>SEG2900</strong>, au sein du programme de génie logiciel de <mark>l’Université d’Ottawa (uOttawa)</mark>. Ce travail est effectué par le <strong>groupe 20</strong>. </p>
+      <div class="hero__actions">
+        <a href="#" class="btn-secondary">Découvrir les fonctionnalités</a>
+      </div>
+    </section>
+
+    <section class="devices" aria-label="Aperçu sur téléphone, ordinateur et tablette">
+
+      <!-- ===== Ordinateur ===== -->
+      <div class="laptop">
+        <div class="screen laptop__screen">
+          <div class="dots"><span></span><span></span><span></span></div>
+
+          <div class="slides" data-interval="4000">
+            <!-- Slide 1 : tableau de bord -->
+            <div class="slide is-active">
+              <div class="laptop__body">
+                <div class="laptop__sidebar"></div>
+                <div class="laptop__content">
+                  <div class="s-line s-line--title"></div>
+                  <div class="s-line s-line--sub"></div>
+                  <div class="s-block"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2 : graphique -->
+            <div class="slide">
+              <div class="s-line s-line--title"></div>
+              <div class="s-bars">
+                <span style="height: 40%"></span>
+                <span style="height: 65%"></span>
+                <span style="height: 50%"></span>
+                <span style="height: 85%"></span>
+                <span style="height: 60%"></span>
+                <span style="height: 95%"></span>
+                <span style="height: 75%"></span>
+              </div>
+            </div>
+            <!-- Slide 3 : liste -->
+            <div class="slide">
+              <div class="s-line s-line--title"></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+            </div>
+          </div>
+
+          <div class="screen__footer">
+            <span class="device-label">Ordinateur</span>
+            <div class="indicators"></div>
+          </div>
+        </div>
+      </div>
+      <div class="laptop__base"></div>
+
+      <!-- ===== Téléphone ===== -->
+      <div class="phone">
+        <div class="screen phone__screen">
+          <div class="slides" data-interval="3500">
+            <!-- Slide 1 : cartes -->
+            <div class="slide is-active">
+              <div class="s-line s-line--phone"></div>
+              <div class="s-card"></div>
+              <div class="s-card"></div>
+            </div>
+            <!-- Slide 2 : progression -->
+            <div class="slide slide--center">
+              <div class="s-ring"></div>
+              <div class="s-line s-line--phone"></div>
+            </div>
+            <!-- Slide 3 : messages -->
+            <div class="slide">
+              <div class="s-bubble"></div>
+              <div class="s-bubble s-bubble--me"></div>
+              <div class="s-bubble"></div>
+            </div>
+          </div>
+
+          <div class="screen__footer screen__footer--column">
+            <div class="indicators"></div>
+            <span class="device-label">Téléphone</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Tablette ===== -->
+      <div class="tablet">
+        <div class="screen screen--light tablet__screen">
+          <div class="slides" data-interval="4500">
+            <!-- Slide 1 : grille -->
+            <div class="slide is-active">
+              <div class="s-line s-line--tablet"></div>
+              <div class="s-grid"><div></div><div></div></div>
+            </div>
+            <!-- Slide 2 : graphique -->
+            <div class="slide">
+              <div class="s-line s-line--tablet"></div>
+              <div class="s-bars">
+                <span style="height: 55%"></span>
+                <span style="height: 80%"></span>
+                <span style="height: 45%"></span>
+                <span style="height: 90%"></span>
+                <span style="height: 70%"></span>
+              </div>
+            </div>
+            <!-- Slide 3 : liste -->
+            <div class="slide">
+              <div class="s-line s-line--tablet"></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+            </div>
+          </div>
+
+          <div class="screen__footer">
+            <span class="device-label">Tablette</span>
+            <div class="indicators"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flèche -->
+      <svg class="arrow" viewBox="0 0 300 120" fill="none" aria-hidden="true">
+        <path d="M6 70 C 70 130, 190 120, 286 22" stroke="#111019" stroke-width="3" stroke-linecap="round"></path>
+        <path d="M266 22 L288 18 L284 40" stroke="#111019" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </section>
+
+  </main>
+
+  <!-- Bouton de téléchargement fixe, visible sur tous les écrans -->
+  <a href="#" class="download-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>
+    Télécharger l'application
+  </a>
+
 </body>
 </html>
