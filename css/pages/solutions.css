@@ -1,0 +1,179 @@
+/* Page Solutions */
+
+/* Espace autour de chaque partie de la page */
+.section {
+  padding-top: var(--espace-tres-grand);
+  padding-bottom: var(--espace-tres-grand);
+}
+
+.section-grise {
+  background-color: var(--couleur-fond-doux);
+}
+
+/* Bloc de texte à gauche de chaque partie */
+.boite-texte {
+  flex: 1;
+  max-width: 360px;
+}
+
+/* ---------- Partie 1 : présentation + écrans ---------- */
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-grand);
+}
+
+.ecrans {
+  flex: 1;
+  position: relative;
+  min-height: 300px;
+}
+
+/* Les écrans sont des cases grises en attendant les vraies images */
+.ecran-ordinateur,
+.ecran-telephone,
+.ecran-grand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--couleur-bordure);
+  border-radius: var(--arrondi);
+  background-color: var(--couleur-fond-doux);
+  color: var(--couleur-texte-doux);
+}
+
+.ecran-ordinateur {
+  width: 85%;
+  height: 260px;
+  margin-left: auto;
+}
+
+/* Le téléphone passe par-dessus l'ordinateur */
+.ecran-telephone {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 110px;
+  height: 200px;
+  background-color: var(--couleur-fond);
+}
+
+/* ---------- Partie 2 : les étapes ---------- */
+
+.etapes-zone {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-grand);
+}
+
+.etapes {
+  flex: 2;
+  display: flex;
+  gap: var(--espace-moyen);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etape {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.cercle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Flèche entre deux cercles (pas après le dernier) */
+.etape:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 20px;
+  right: -16px;
+  font-size: 24px;
+  color: var(--couleur-texte-doux);
+}
+
+/* ---------- Partie 3 : les solutions ---------- */
+
+.solutions-zone {
+  display: flex;
+  gap: var(--espace-grand);
+}
+
+/* 4 solutions par ligne */
+.grille-solutions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espace-grand) var(--espace-moyen);
+}
+
+.icone {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--espace-petit);
+  border-radius: var(--arrondi);
+  background-color: var(--couleur-accent);
+}
+
+.solution h3 {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.solution p {
+  margin: 0;
+  color: var(--couleur-texte-doux);
+  font-size: 14px;
+}
+
+.ecran-grand {
+  flex: 0 0 240px;
+  min-height: 380px;
+}
+
+/* ---------- Petits écrans (téléphone) ---------- */
+
+@media (max-width: 800px) {
+  /* Les parties passent en colonne : texte au-dessus, image en dessous */
+  .intro,
+  .etapes-zone,
+  .solutions-zone {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .boite-texte {
+    max-width: none;
+  }
+
+  .etapes {
+    flex-direction: column;
+  }
+
+  .etape:not(:last-child)::after {
+    content: "↓";
+    position: static;
+    display: block;
+  }
+
+  .grille-solutions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecran-grand {
+    flex-basis: auto;
+    min-height: 200px;
+  }
+}

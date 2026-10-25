@@ -1,1 +1,50 @@
 /* Éléments réutilisables : boutons, cartes, formulaires, navbar */
+
+/* Barre de navigation */
+.site-header {
+  padding: var(--espace-moyen) 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--espace-moyen);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid var(--couleur-texte);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.actif {
+  background-color: var(--couleur-accent);
+  border-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+}
+
+/* Bouton */
+.bouton {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: var(--arrondi);
+  background-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+  text-decoration: none;
+}
+
+/* Pied de page */
+.site-footer {
+  padding: var(--espace-grand) 0;
+  border-top: 1px solid var(--couleur-bordure);
+  text-align: center;
+  color: var(--couleur-texte-doux);
+}
