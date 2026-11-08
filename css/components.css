@@ -18,11 +18,10 @@
   color: var(--couleur-texte-doux);
 }
 
-/* Navbar commune (voir js/utils/navbar.js) : menu du haut du guide de style */
+/* Navbar commune (voir js/utils/navbar.js) : fond blanc, rouge réservé aux détails */
 .top-menu {
-  --menu-fond: #fee2e2;
-  --menu-fond-survol: #fecaca;
-  --menu-texte: #991b1b;
+  --menu-texte: #111019;
+  --menu-fond-survol: #f4f4f4;
   --menu-actif: #dc2626;
   /* Valeurs fixées ici pour que le menu soit identique sur toutes les pages,
      quels que soient la police, l'interligne ou le reset de la page */
@@ -46,23 +45,28 @@
   box-sizing: border-box;
   flex: 1;
   padding: 10px 4px;
+  border: 1.5px solid transparent;
   border-radius: 999px;
-  background: var(--menu-fond, #fee2e2);
-  color: var(--menu-texte, #991b1b);
+  background: transparent;
+  color: var(--menu-texte, #111019);
   font-size: 14px;
   text-align: center;
   text-decoration: none;
-  transition: background 0.25s, transform 0.25s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
 }
 
 .menu-item:hover {
-  background: var(--menu-fond-survol, #fecaca);
+  background: var(--menu-fond-survol, #f4f4f4);
+  color: var(--menu-actif, #dc2626);
   transform: translateY(-2px);
 }
 
+/* Page en cours : contour et texte rouges */
 .menu-item.active {
-  background: var(--menu-actif, #dc2626);
-  color: #ffffff;
+  border-color: var(--menu-actif, #dc2626);
+  background: #ffffff;
+  color: var(--menu-actif, #dc2626);
+  font-weight: bold;
 }
 
 /* Place pour le menu fixe */
