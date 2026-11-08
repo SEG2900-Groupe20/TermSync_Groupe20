@@ -4,54 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Features | TermSync</title>
+
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/pages/pricing.css">
+  <link rel="stylesheet" href="../css/pages/features.css">
 </head>
+
 <body>
+
   <header class="site-header">
-    <button id="home" name="home" type="button"> Home </button>
-    <button id="about" name="about" type="button"> About </button>
-    <button id="features" name="home" type="button"> Features </button>
-    <button id="pricing" name="pricing" type="button"> Pricing </button>
-    <button id="contact_us" name="contact_us" type="button"> Contact Us </button>
+    <button id="home" class="btn" onclick="window.location.href='../index.html'">Home</button>
+    <button id="about" class="btn" onclick="window.location.href='about.html'">About</button>
+    <button id="features" class="btn" onclick="window.location.href='#'">Features</button>
+    <button id="pricing" class="btn" onclick="window.location.href='pricing.html'">Pricing</button>
+    <button id="contact_us" class="btn" onclick="window.location.href='team.html'">Contact Us</button>
   </header>
+
   <main id="main">
-    <div id="title" name="title" class="title"> FEATURES </div>
-    <div id="content" class="content">
-        <div class="card" >
-            <img class="card-img-top" src="" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                 <p class="card-text">Some example text.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                 <p class="card-text">Some example text.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                 <p class="card-text">Some example text.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                 <p class="card-text">Some example text.</p>
-            </div>
-        </div>
-    </div>
+
+    <h1 class="page-title">Features</h1>
+
+    <section class="feature" id="feature1">
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Feature 1 screenshot">
+      </div>
+
+      <div class="feature-description">
+        <div class="feature-symbol">Feature 1</div>
+        <h2>Feature 1 Title</h2>
+        <p>
+          Description of the first feature.
+          Explain how this feature helps users.
+        </p>
+      </div>
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Additional screenshot">
+      </div>
+
+    </section>
+
+    <section class="feature" id="feature2">
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Feature 2 screenshot">
+      </div>
+
+      <div class="feature-description">
+        <div class="feature-symbol">Feature 2</div>
+        <h2>Feature 2 Title</h2>
+        <p>
+          Description of the second feature.
+          Explain its advantages.
+        </p>
+      </div>
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Additional screenshot">
+      </div>
+    </section>
+
+    <section class="feature" id="feature3">
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Feature 3 screenshot">
+      </div>
+
+      <div class="feature-description">
+        <div class="feature-symbol">Feature 3</div>
+        <h2>Feature 3 Title</h2>
+        <p>
+          Description of the third feature.
+          Explain how it works.
+        </p>
+      </div>
+
+      <div class="feature-image">
+        <img src="features.jpeg" alt="Additional screenshot">
+      </div>
+
+    </section>
+
   </main>
+
   <footer class="site-footer"></footer>
+
   <script src="../js/main.js"></script>
   <script src="../js/pages/features.js"></script>
+
 </body>
 </html>
