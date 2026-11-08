@@ -34,111 +34,6 @@ a:hover {
   color: var(--text);
 }
 
-/* ===== En-tête ===== */
-.header {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-}
-
-.header__inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-}
-
-.logo__icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--logo);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo__text {
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.02em;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-  font-size: 15px;
-}
-
-/* Lien : bordure invisible au repos, pour éviter tout décalage au survol */
-.nav a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 18px;
-  border: 1.5px solid transparent;
-  border-radius: 12px;
-  color: #3B3A4A;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease, transform 0.1s ease;
-}
-
-/* Survol */
-.nav a:hover {
-  color: var(--accent);
-  background: #F6F3FF;
-  border-color: #D9CFFB;
-}
-
-/* Clic (pendant l'appui) */
-.nav a:active {
-  transform: scale(0.96);
-  background: #EDE7FE;
-  border-color: #C4B5FD;
-}
-
-/* Lien de la page en cours (défini au clic par script.js) */
-.nav a[aria-current="page"] {
-  color: #5B21B6;
-  font-weight: 600;
-  background: #EDE7FE;
-  border-color: var(--accent);
-  box-shadow: 0 4px 12px -6px rgba(109, 40, 217, 0.5);
-}
-
-/* Navigation au clavier */
-.nav a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.menu-btn {
-  margin-left: auto;
-  width: 44px;
-  height: 44px;
-  flex: none;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 /* ===== Hero ===== */
 .hero {
   max-width: 1240px;
@@ -582,10 +477,6 @@ a:hover {
 
 /* ===== Responsive ===== */
 @media (max-width: 820px) {
-  .nav {
-    display: none;
-  }
-
   .hero {
     padding-top: 32px;
   }
@@ -602,8 +493,7 @@ a:hover {
 /* Pas d'animation pour ceux qui l'ont désactivée */
 @media (prefers-reduced-motion: reduce) {
   .slide,
-  .indicator::before,
-  .nav a {
+  .indicator::before {
     transition: none;
   }
 }
