@@ -4,39 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solutions | TermSync</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages/solutions.css">
 </head>
-<body>
+<body class="page-solutions">
   <header class="site-header">
-    <nav class="conteneur">
-      <ul class="menu">
-        <li><a href="../index.html">Accueil</a></li>
-        <li><a href="solutions.html" class="actif">Solutions</a></li>
-        <li><a href="features.html">Fonctionnalités</a></li>
-        <li><a href="pricing.html">Prix</a></li>
-        <li><a href="team.html">Équipe</a></li>
-      </ul>
-    </nav>
+    <div class="entete">
+      <a href="../index.html" class="logo">
+        <span class="logo-icone">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>
+        </span>
+        <span class="logo-texte">[Logo]</span>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="menu">
+          <li><a href="features.html">Fonctionnalités</a></li>
+          <li><a href="solutions.html" aria-current="page">Solutions</a></li>
+          <li><a href="pricing.html">Tarifs</a></li>
+          <li><a href="team.html">Équipe</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- Partie 1 : présentation + écrans -->
-    <section class="section conteneur intro">
+    <!-- Partie 1 : présentation + appareils -->
+    <section class="conteneur intro">
       <div class="boite-texte">
-        <h1>Vos plans de cours deviennent un calendrier</h1>
+        <span class="badge">Pour les étudiants</span>
+        <h1>Vos plans de cours deviennent <span class="accent">un calendrier.</span></h1>
         <p>
-          TermSync lit vos plans de cours (PDF, Word ou photo) et place
-          automatiquement vos examens et vos devoirs dans un calendrier.
+          Importez un plan de cours en PDF, en Word ou même en photo.
+          TermSync repère vos examens, vos devoirs et leur pondération,
+          puis les place dans un calendrier prêt à consulter.
         </p>
-        <a href="pricing.html" class="bouton">Commencer</a>
+        <div>
+          <a href="pricing.html" class="bouton">Commencer</a>
+        </div>
       </div>
 
-      <div class="ecrans">
-        <div class="ecran-ordinateur">Ordinateur</div>
-        <div class="ecran-telephone">Téléphone</div>
+      <div class="appareils" aria-hidden="true">
+        <div class="ordinateur">
+          <div class="ecran ecran-ordinateur">
+            <div class="points"><span></span><span></span><span></span></div>
+            <div class="ordinateur-corps">
+              <div class="ordinateur-menu"></div>
+              <div class="ordinateur-contenu">
+                <div class="trait trait-titre"></div>
+                <div class="trait trait-sous-titre"></div>
+                <div class="bloc"></div>
+              </div>
+            </div>
+            <span class="etiquette">Ordinateur</span>
+          </div>
+        </div>
+        <div class="ordinateur-socle"></div>
+
+        <div class="telephone">
+          <div class="ecran ecran-telephone">
+            <div class="trait trait-telephone"></div>
+            <div class="carte-mini"></div>
+            <div class="carte-mini"></div>
+            <span class="etiquette">Téléphone</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -46,22 +82,23 @@
         <div class="boite-texte">
           <h2>Comment ça marche ?</h2>
           <p>Quatre étapes simples, sans rien recopier à la main.</p>
+          <p id="detail-etape" class="detail-etape" aria-live="polite"></p>
         </div>
 
         <ol class="etapes">
-          <li class="etape">
+          <li class="etape actif" data-detail="Déposez un PDF, un document Word ou une photo de votre plan de cours. Un fichier par cours suffit.">
             <span class="cercle">1</span>
             <p>Importez votre plan de cours</p>
           </li>
-          <li class="etape">
+          <li class="etape" data-detail="TermSync lit le document et repère les dates d'examen, les échéances de devoirs et ce que vaut chaque évaluation.">
             <span class="cercle">2</span>
             <p>TermSync trouve les dates et les pondérations</p>
           </li>
-          <li class="etape">
+          <li class="etape" data-detail="Les informations trouvées s'affichent clairement. Vous corrigez une date si nécessaire, en quelques secondes.">
             <span class="cercle">3</span>
             <p>Vous vérifiez en un coup d'œil</p>
           </li>
-          <li class="etape">
+          <li class="etape" data-detail="Tout est ajouté à votre calendrier de session. Vous voyez d'un coup ce qui s'en vient, cours après cours.">
             <span class="cercle">4</span>
             <p>Votre calendrier est prêt</p>
           </li>
@@ -117,7 +154,13 @@
         </div>
       </div>
 
-      <div class="ecran-grand">Aperçu du calendrier</div>
+      <div class="tablette" aria-hidden="true">
+        <div class="ecran ecran-tablette">
+          <div class="trait trait-titre"></div>
+          <div class="calendrier" id="calendrier"></div>
+          <span class="etiquette">Aperçu du calendrier</span>
+        </div>
+      </div>
     </section>
   </main>
 
