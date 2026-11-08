@@ -11,27 +11,6 @@ body {
 
 /* HEADER */
 
-.site-header {
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
-  padding: 20px;
-}
-
-.btn {
-  width: 15%;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  background: #fee2e2;
-  color: #991b1b;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #fecaca;
-}
-
 /* MAIN */
 
 main {
@@ -126,15 +105,6 @@ main {
 /* MOBILE */
 
 @media screen and (max-width: 768px) {
-
-  .site-header {
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    width: auto;
-    flex: 1;
-  }
 
   .feature {
     grid-template-columns: 1fr;

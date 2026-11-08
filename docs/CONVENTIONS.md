@@ -21,3 +21,9 @@
 - Avant de commencer : `git pull`
 - Messages de commit courts et clairs
 - Fusion dans `main` par pull request, relue par un autre membre
+
+## Navbar commune
+- Le menu du haut est un composant : `js/utils/navbar.js` (liste des liens) + style dans `css/components.css`
+- Dans chaque page : `<script src="../js/utils/navbar.js" defer></script>` dans le `<head>`
+  (depuis `index.html` : `./js/utils/navbar.js`) et `<div id="navbar"></div>` au début du `<body>`
+- Ne pas recréer de menu dans le CSS d'une page
