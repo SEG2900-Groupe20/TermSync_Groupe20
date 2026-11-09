@@ -14,51 +14,59 @@
   <div id="navbar"></div>
 
   <main>
-    <!-- Partie 1 : présentation + appareils -->
-    <section class="conteneur intro">
-      <div class="boite-texte">
-        <span class="badge">Pour les étudiants</span>
-        <h1 class="page-title">Vos plans de cours deviennent <span class="accent">un calendrier.</span></h1>
-        <p>
-          Importez un plan de cours en PDF, en Word ou même en photo.
-          TermSync repère vos examens, vos devoirs et leur pondération,
-          puis les place dans un calendrier prêt à consulter.
-        </p>
-        <div>
-          <a href="pricing.html" class="bouton">Commencer</a>
-        </div>
-      </div>
-
-      <div class="appareils" aria-hidden="true">
-        <div class="ordinateur">
-          <div class="ecran ecran-ordinateur">
-            <div class="points"><span></span><span></span><span></span></div>
-            <div class="ordinateur-corps">
-              <div class="ordinateur-menu"></div>
-              <div class="ordinateur-contenu">
-                <div class="trait trait-titre"></div>
-                <div class="trait trait-sous-titre"></div>
-                <div class="bloc"></div>
-              </div>
-            </div>
-            <span class="etiquette">Ordinateur</span>
+    <!-- Partie 1 : présentation + de plan de cours à calendrier -->
+    <section class="hero-solutions">
+      <div class="conteneur">
+        <div class="hero-texte">
+          <span class="badge">Pour les étudiants</span>
+          <h1 class="page-title">Vos plans de cours deviennent <span class="accent">un calendrier.</span></h1>
+          <p>
+            Importez un plan de cours en PDF, en Word ou même en photo.
+            TermSync repère vos examens, vos devoirs et leur pondération,
+            puis les place dans un calendrier prêt à consulter.
+          </p>
+          <div class="hero-actions">
+            <a href="pricing.html" class="bouton">Commencer</a>
+            <a href="#comment-ca-marche" class="lien-secondaire">Voir comment ça marche</a>
           </div>
         </div>
-        <div class="ordinateur-socle"></div>
 
-        <div class="telephone">
-          <div class="ecran ecran-telephone">
-            <div class="trait trait-telephone"></div>
-            <div class="carte-mini"></div>
-            <div class="carte-mini"></div>
-            <span class="etiquette">Téléphone</span>
+        <div class="hero-visuel" aria-hidden="true">
+          <div class="carte-doc">
+            <div class="carte-entete">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span>plan-de-cours.pdf</span>
+            </div>
+            <div class="ligne ligne-longue"></div>
+            <div class="ligne ligne-moyenne"></div>
+            <div class="ligne-info"><span>Devoir 1</span><strong>10 %</strong></div>
+            <div class="ligne ligne-longue"></div>
+            <div class="ligne-info"><span>Examen de mi-session</span><strong>30 %</strong></div>
+            <div class="ligne ligne-courte"></div>
+            <div class="ligne-info"><span>Examen final</span><strong>40 %</strong></div>
+          </div>
+
+          <div class="fleche-sync">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/><path d="M16 16h5v5"/></svg>
+          </div>
+
+          <div class="carte-calendrier">
+            <div class="carte-entete">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span>Votre calendrier</span>
+            </div>
+            <div class="calendrier" data-jours="9,17,28" data-devoirs="5,12,24"></div>
+            <ul class="legende">
+              <li><span class="puce puce-examen"></span>Examen</li>
+              <li><span class="puce puce-devoir"></span>Devoir</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Partie 2 : les étapes -->
-    <section class="section section-grise">
+    <section class="section section-grise" id="comment-ca-marche">
       <div class="conteneur etapes-zone">
         <div class="boite-texte">
           <h2>Comment ça marche ?</h2>
@@ -93,42 +101,42 @@
         <h2>Ce que TermSync fait pour vous</h2>
         <div class="grille-solutions">
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
             <h3>Dates d'examen</h3>
             <p>Tous vos examens au même endroit.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
             <h3>Devoirs</h3>
             <p>Chaque échéance est ajoutée au calendrier.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
             <h3>Pondérations</h3>
             <p>Voyez combien vaut chaque évaluation.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
             <h3>PDF, Word, photo</h3>
             <p>Importez le format que vous avez.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
             <h3>Plusieurs cours</h3>
             <p>Toute votre session dans un seul calendrier.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
             <h3>Rien à recopier</h3>
             <p>Fini la saisie manuelle des dates.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
             <h3>Moins de stress</h3>
             <p>Vous savez toujours ce qui arrive.</p>
           </article>
           <article class="solution">
-            <div class="icone"></div>
+            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
             <h3>Aucun oubli</h3>
             <p>Plus d'échéance manquée.</p>
           </article>
@@ -138,7 +146,7 @@
       <div class="tablette" aria-hidden="true">
         <div class="ecran ecran-tablette">
           <div class="trait trait-titre"></div>
-          <div class="calendrier" id="calendrier"></div>
+          <div class="calendrier" data-jours="4,11,17,25,30"></div>
           <span class="etiquette">Aperçu du calendrier</span>
         </div>
       </div>

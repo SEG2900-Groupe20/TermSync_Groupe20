@@ -53,19 +53,24 @@ if ('IntersectionObserver' in window) {
   });
 }
 
-// ----- Petit calendrier dessiné dans la tablette -----
-const calendrier = document.getElementById('calendrier');
+// ----- Petits calendriers dessinés (hero et tablette) -----
+// data-jours : jours d'examen, data-devoirs : jours de devoir (numérotés à partir de 1)
+document.querySelectorAll('.calendrier').forEach(function (calendrier) {
+  function lireListe(texte) {
+    return (texte || '').split(',').map(Number);
+  }
 
-if (calendrier) {
-  // Jours (numérotés à partir de 1) marqués comme examen ou devoir
-  const joursImportants = [4, 11, 17, 25, 30];
+  const examens = lireListe(calendrier.dataset.jours);
+  const devoirs = lireListe(calendrier.dataset.devoirs);
 
   for (let numero = 1; numero <= 35; numero++) {
     const jour = document.createElement('div');
     jour.className = 'jour';
-    if (joursImportants.includes(numero)) {
+    if (examens.includes(numero)) {
       jour.classList.add('important');
+    } else if (devoirs.includes(numero)) {
+      jour.classList.add('devoir');
     }
     calendrier.appendChild(jour);
   }
-}
+});
