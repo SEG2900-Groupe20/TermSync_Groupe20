@@ -208,3 +208,18 @@
     transition: none;
   }
 }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--menu-actif);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.7);
+  transition: background 0.25s, transform 0.25s;
+}
