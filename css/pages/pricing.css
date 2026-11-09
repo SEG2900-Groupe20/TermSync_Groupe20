@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding-top: 100px;
   font-family: Arial, sans-serif;
-  background: #fdf2f2;
+  background: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -54,8 +54,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fee2e2;
-  color: #991b1b;
+  background: #ffffff;
+  color: #111019;
+  border: 1px solid #e5e5e5;
   box-shadow: 0 4px 15px rgba(220, 38, 38, 0.05);
   flex-shrink: 0;
 }
@@ -74,6 +75,7 @@ body {
 
 .card h3 {
   margin: 0 0 15px 0;
+  color: #991b1b;
   font-size: 24px;
 }
 
