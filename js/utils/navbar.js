@@ -3,9 +3,10 @@
 // Utilisation dans une page :
 //   <head>  <script src="../js/utils/navbar.js" defer></script>  </head>
 //   <body>  <div id="navbar"></div>  ...
-// (dans index.html à la racine : src="js/utils/navbar.js")
+// (dans index.html à la racine : src="./js/utils/navbar.js")
 //
-// Pour ajouter ou renommer un lien, il suffit de modifier la liste ci-dessous.
+// Pour ajouter ou renommer un lien, modifier la liste ci-dessous.
+// Pour mettre le vrai logo, remplacer le contenu de creerLogo().
 
 (function () {
   // Adresse de ce script : permet de retrouver la racine du site
@@ -20,22 +21,52 @@
     { texte: 'Équipe', page: 'pages/team.html' }
   ];
 
+  // Bouton d'action à droite du menu
+  const action = { texte: 'Commencer', page: 'pages/pricing.html' };
+
+  function adresse(page) {
+    return new URL(page, racine).href;
+  }
+
   function nomDuFichier(chemin) {
     return chemin.split('/').pop() || 'index.html';
   }
 
-  function creerNavbar() {
-    const pageActuelle = nomDuFichier(window.location.pathname);
+  // Logo : icône + nom. Remplacer par une image quand le vrai logo existera.
+  function creerLogo() {
+    const logo = document.createElement('a');
+    logo.className = 'menu-logo';
+    logo.href = adresse('index.html');
+    logo.setAttribute('aria-label', 'Retour à l\'accueil');
 
+    const icone = document.createElement('span');
+    icone.className = 'menu-logo-icone';
+    icone.innerHTML =
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" ' +
+      'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>';
+
+    const texte = document.createElement('span');
+    texte.className = 'menu-logo-texte';
+    texte.textContent = '[Logo]';
+
+    logo.appendChild(icone);
+    logo.appendChild(texte);
+    return logo;
+  }
+
+  function creerLiens() {
+    const pageActuelle = nomDuFichier(window.location.pathname);
     const nav = document.createElement('nav');
-    nav.className = 'top-menu';
+    nav.className = 'menu-liens';
+    nav.id = 'menu-liens';
     nav.setAttribute('aria-label', 'Navigation principale');
 
     liens.forEach(function (lien) {
       const a = document.createElement('a');
       a.className = 'menu-item';
       a.textContent = lien.texte;
-      a.href = new URL(lien.page, racine).href;
+      a.href = adresse(lien.page);
 
       if (nomDuFichier(lien.page) === pageActuelle) {
         a.classList.add('active');
@@ -43,20 +74,71 @@
       }
       nav.appendChild(a);
     });
-
     return nav;
+  }
+
+  function creerBouton() {
+    const a = document.createElement('a');
+    a.className = 'menu-action';
+    a.textContent = action.texte;
+    a.href = adresse(action.page);
+    return a;
+  }
+
+  // Bouton à 3 barres, visible seulement sur petit écran
+  function creerBurger(barre) {
+    const bouton = document.createElement('button');
+    bouton.type = 'button';
+    bouton.className = 'menu-burger';
+    bouton.setAttribute('aria-label', 'Ouvrir le menu');
+    bouton.setAttribute('aria-controls', 'menu-liens');
+    bouton.setAttribute('aria-expanded', 'false');
+    bouton.innerHTML =
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>';
+
+    function basculer(ouvrir) {
+      barre.classList.toggle('ouvert', ouvrir);
+      bouton.setAttribute('aria-expanded', String(ouvrir));
+    }
+
+    bouton.addEventListener('click', function () {
+      basculer(!barre.classList.contains('ouvert'));
+    });
+    document.addEventListener('keydown', function (evenement) {
+      if (evenement.key === 'Escape') basculer(false);
+    });
+    barre.addEventListener('click', function (evenement) {
+      if (evenement.target.closest('.menu-item, .menu-action')) basculer(false);
+    });
+    return bouton;
+  }
+
+  function creerNavbar() {
+    const barre = document.createElement('header');
+    barre.className = 'top-menu';
+
+    const interieur = document.createElement('div');
+    interieur.className = 'top-menu-interieur';
+    interieur.appendChild(creerLogo());
+    interieur.appendChild(creerLiens());
+    interieur.appendChild(creerBouton());
+    interieur.appendChild(creerBurger(barre));
+
+    barre.appendChild(interieur);
+    return barre;
   }
 
   function afficher() {
     const emplacement = document.getElementById('navbar');
-    const nav = creerNavbar();
+    const barre = creerNavbar();
 
     if (emplacement) {
-      emplacement.appendChild(nav);
+      emplacement.appendChild(barre);
     } else {
-      document.body.prepend(nav);
+      document.body.prepend(barre);
     }
-    // Le menu est fixe : le guide demande 100px de marge en haut du body
+    // Le menu est fixe : on laisse la place en haut du body
     document.body.classList.add('avec-menu');
   }
 
