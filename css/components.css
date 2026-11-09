@@ -18,11 +18,13 @@
   color: var(--couleur-texte-doux);
 }
 
-/* Navbar commune (voir js/utils/navbar.js) : fond blanc, rouge réservé aux détails */
+/* Navbar commune (voir js/utils/navbar.js) : barre blanche, rouge réservé aux détails */
 .top-menu {
   --menu-texte: #111019;
   --menu-fond-survol: #f4f4f4;
+  --menu-bordure: #e5e5e5;
   --menu-actif: #dc2626;
+  --menu-actif-fonce: #b91c1c;
   /* Valeurs fixées ici pour que le menu soit identique sur toutes les pages,
      quels que soient la police, l'interligne ou le reset de la page */
   box-sizing: border-box;
@@ -33,55 +35,176 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  display: flex;
-  gap: 12px;
   width: 100%;
-  padding: 15px 20px;
   background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--menu-bordure);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.menu-item {
+.top-menu *,
+.top-menu *::before,
+.top-menu *::after {
   box-sizing: border-box;
-  flex: 1;
-  padding: 10px 4px;
+}
+
+.top-menu-interieur {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+/* Logo */
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--menu-texte);
+  text-decoration: none;
+}
+
+.menu-logo-image {
+  display: block;
+  width: auto;
+  height: 44px;
+}
+
+/* Liens */
+.menu-liens {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.menu-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
   border: 1.5px solid transparent;
   border-radius: 999px;
   background: transparent;
-  color: var(--menu-texte, #111019);
+  color: var(--menu-texte);
   font-size: 14px;
-  text-align: center;
   text-decoration: none;
   transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
 }
 
 .menu-item:hover {
-  background: var(--menu-fond-survol, #f4f4f4);
-  color: var(--menu-actif, #dc2626);
+  background: var(--menu-fond-survol);
+  color: var(--menu-actif);
   transform: translateY(-2px);
 }
 
 /* Page en cours : contour et texte rouges */
 .menu-item.active {
-  border-color: var(--menu-actif, #dc2626);
+  border-color: var(--menu-actif);
   background: #ffffff;
-  color: var(--menu-actif, #dc2626);
+  color: var(--menu-actif);
   font-weight: bold;
+  box-shadow: 0 4px 12px -6px rgba(220, 38, 38, 0.5);
+}
+
+/* Bouton d'action */
+.menu-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--menu-actif);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.7);
+  transition: background 0.25s, transform 0.25s;
+}
+
+.menu-action:hover {
+  background: var(--menu-actif-fonce);
+  transform: translateY(-2px);
+}
+
+.menu-item:focus-visible,
+.menu-action:focus-visible,
+.menu-burger:focus-visible,
+.menu-logo:focus-visible {
+  outline: 2px solid var(--menu-actif);
+  outline-offset: 3px;
+}
+
+/* Bouton burger (petits écrans seulement) */
+.menu-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--menu-bordure);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--menu-texte);
+  cursor: pointer;
 }
 
 /* Place pour le menu fixe */
 .avec-menu {
-  padding-top: 100px;
+  padding-top: 73px;
 }
 
 @media (max-width: 768px) {
-  .top-menu {
+  .top-menu-interieur {
+    gap: 15px;
+    padding: 12px 20px;
+  }
+
+  .menu-action {
+    display: none;
+  }
+
+  .menu-burger {
+    display: flex;
+  }
+
+  .menu-logo-image {
+    height: 36px;
+  }
+
+  /* Les liens passent dans un panneau sous la barre */
+  .menu-liens {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
     gap: 6px;
-    padding: 10px;
+    margin: 0;
+    padding: 12px 20px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--menu-bordure);
+    box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+  }
+
+  .top-menu.ouvert .menu-liens {
+    display: flex;
   }
 
   .menu-item {
-    padding: 10px 2px;
-    font-size: 12px;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-item,
+  .menu-action {
+    transition: none;
   }
 }

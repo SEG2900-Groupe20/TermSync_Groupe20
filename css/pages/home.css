@@ -1,3 +1,4 @@
+
 /* ===== Variables ===== */
 :root {
   --accent: #d9284e;
@@ -27,7 +28,7 @@ body {
 }
 
 a {
-  color: #3B3A4A;
+  color: #991b1b;
 }
 
 a:hover {
@@ -102,7 +103,7 @@ mark {
   min-height: 48px;
   padding: 0 22px;
   border-radius: 12px;
-  border: 1.5px solid #D6D3E3;
+  border: 1.5px solid #fecaca;
   background: var(--white);
   color: var(--text);
   font-weight: 600;
@@ -118,12 +119,13 @@ mark {
   height: 460px;
 }
 
-/* Teintes utilisées dans les écrans (claires sur fond coloré) */
+/* Couleurs internes des écrans */
 .screen {
   --tint-strong: rgba(255, 255, 255, 0.75);
   --tint: rgba(255, 255, 255, 0.35);
   --tint-soft: rgba(255, 255, 255, 0.16);
   --label: #FFFFFF;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -131,7 +133,7 @@ mark {
   height: 100%;
 }
 
-/* Teintes sombres pour l'écran turquoise */
+/* Écran clair */
 .screen--light {
   --tint-strong: rgba(17, 16, 25, 0.5);
   --tint: rgba(17, 16, 25, 0.22);
@@ -156,7 +158,7 @@ mark {
   font-weight: 700;
 }
 
-/* Ordinateur */
+/* ===== Ordinateur ===== */
 .laptop {
   position: absolute;
   top: 0;
@@ -166,7 +168,8 @@ mark {
   background: var(--device-frame);
   border-radius: 18px 18px 6px 6px;
   padding: 12px;
-  box-shadow: 0 30px 60px -20px rgba(76, 29, 149, 0.35);
+  box-shadow: 0 30px 60px -20px
+    rgba(220, 38, 38, 0.35);
 }
 
 .laptop__screen {
@@ -212,11 +215,11 @@ mark {
   left: 6%;
   right: 0;
   height: 14px;
-  background: #D9D6E4;
+  background: #f3d4d4;
   border-radius: 0 0 14px 14px;
 }
 
-/* Téléphone */
+/* ===== Téléphone ===== */
 .phone {
   position: absolute;
   left: 0;
@@ -227,7 +230,8 @@ mark {
   background: var(--device-frame);
   border-radius: 26px;
   padding: 8px;
-  box-shadow: 0 24px 48px -16px rgba(190, 24, 93, 0.4);
+  box-shadow: 0 24px 48px -16px
+    rgba(236, 72, 153, 0.4);
 }
 
 .phone__screen {
@@ -237,7 +241,7 @@ mark {
   gap: 8px;
 }
 
-/* Tablette */
+/* ===== Tablette ===== */
 .tablet {
   position: absolute;
   right: -2%;
@@ -248,7 +252,8 @@ mark {
   background: var(--device-frame);
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 0 24px 48px -16px rgba(13, 148, 136, 0.45);
+  box-shadow: 0 24px 48px -16px
+    rgba(251, 146, 60, 0.45);
 }
 
 .tablet__screen {
@@ -274,7 +279,8 @@ mark {
   gap: 8px;
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease,
+    transform 0.5s ease;
   pointer-events: none;
 }
 
@@ -295,7 +301,7 @@ mark {
   gap: 14px;
 }
 
-/* Indicateurs (points) générés par script.js */
+/* ===== Indicateurs ===== */
 .indicators {
   display: flex;
   gap: 2px;
@@ -319,7 +325,8 @@ mark {
   height: 6px;
   border-radius: 99px;
   background: var(--tint);
-  transition: width 0.3s ease, background 0.3s ease;
+  transition: width 0.3s ease,
+    background 0.3s ease;
 }
 
 .indicator.is-active::before {
@@ -333,7 +340,7 @@ mark {
   border-radius: 4px;
 }
 
-/* ===== Éléments dessinés dans les slides ===== */
+/* ===== Éléments des slides ===== */
 .s-line {
   border-radius: 4px;
   flex: none;
@@ -447,7 +454,7 @@ mark {
   background: var(--tint-soft);
 }
 
-/* Flèche */
+/* ===== Flèche ===== */
 .arrow {
   position: absolute;
   left: 4%;
@@ -456,7 +463,7 @@ mark {
   height: 30%;
 }
 
-/* ===== Bouton de téléchargement fixe ===== */
+/* ===== Bouton de téléchargement ===== */
 .download-btn {
   position: fixed;
   left: 24px;
@@ -473,7 +480,8 @@ mark {
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
-  box-shadow: 0 14px 30px -10px rgba(76, 29, 149, 0.55);
+  box-shadow: 0 14px 30px -10px
+    rgba(220, 38, 38, 0.55);
 }
 
 .download-btn:hover {
@@ -496,7 +504,7 @@ mark {
   }
 }
 
-/* Pas d'animation pour ceux qui l'ont désactivée */
+/* ===== Accessibilité ===== */
 @media (prefers-reduced-motion: reduce) {
   .slide,
   .indicator::before {
