@@ -1,1 +1,87 @@
-/* Éléments réutilisables : boutons, cartes, formulaires, navbar */
+/* Éléments réutilisables : boutons, cartes, formulaires, navbar (voir js/utils/navbar.js) */
+
+/* Bouton */
+.bouton {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: var(--arrondi);
+  background-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+  text-decoration: none;
+}
+
+/* Pied de page */
+.site-footer {
+  padding: var(--espace-grand) 0;
+  border-top: 1px solid var(--couleur-bordure);
+  text-align: center;
+  color: var(--couleur-texte-doux);
+}
+
+/* Navbar commune (voir js/utils/navbar.js) : fond blanc, rouge réservé aux détails */
+.top-menu {
+  --menu-texte: #111019;
+  --menu-fond-survol: #f4f4f4;
+  --menu-actif: #dc2626;
+  /* Valeurs fixées ici pour que le menu soit identique sur toutes les pages,
+     quels que soient la police, l'interligne ou le reset de la page */
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 10px 4px;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--menu-texte, #111019);
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.menu-item:hover {
+  background: var(--menu-fond-survol, #f4f4f4);
+  color: var(--menu-actif, #dc2626);
+  transform: translateY(-2px);
+}
+
+/* Page en cours : contour et texte rouges */
+.menu-item.active {
+  border-color: var(--menu-actif, #dc2626);
+  background: #ffffff;
+  color: var(--menu-actif, #dc2626);
+  font-weight: bold;
+}
+
+/* Place pour le menu fixe */
+.avec-menu {
+  padding-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .top-menu {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .menu-item {
+    padding: 10px 2px;
+    font-size: 12px;
+  }
+}

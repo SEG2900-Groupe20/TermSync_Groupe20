@@ -1,0 +1,286 @@
+STYLE GUIDELINES - PROJET DE GROUPE SEG
+--------------------------------------------------
+1. RÈGLES GÉNÉRALES
+--------------------------------------------------
+- Un fichier CSS par page (ex. pricing.css), mais les mêmes couleurs,
+  polices et composants partout.
+- Toujours commencer le CSS par la réinitialisation globale :
+
+    * { box-sizing: border-box; }
+
+- Police unique pour tout le site : Arial, sans-serif
+- Mise en page principale : body en flex, colonne, éléments centrés.
+- Garder le CSS simple : pas de bibliothèque externe, pas de frameworks.
+
+--------------------------------------------------
+2. PALETTE DE COULEURS (thème rouge/rose)
+--------------------------------------------------
+Couleur              Code        Utilisation
+-------------------  ----------  -----------------------------------------
+Fond de page         #fdf2f2     background du body
+Rouge très clair     #fee2e2     cartes, boutons du menu
+Rouge clair          #fecaca     hover du menu, points inactifs
+Rouge principal      #dc2626     boutons, bordures, élément actif
+Rouge foncé (hover)  #b91c1c     hover des boutons principaux
+Rouge texte          #991b1b     titres et textes
+Blanc                #ffffff     fond des boutons de navigation, texte bouton
+Menu (fond)          rgba(255, 255, 255, 0.95)   barre de menu
+
+=> N'utiliser QUE ces couleurs. Pas de nouvelle couleur sans accord du groupe.
+
+--------------------------------------------------
+3. TYPOGRAPHIE
+--------------------------------------------------
+Élément              Taille   Détails
+-------------------  -------  ---------------------------
+Titre de page        32px     couleur #991b1b, marge basse 30px
+Titre de carte (h3)  24px     marge basse 15px
+Texte de carte       14px     line-height 1.6, opacité 0.9, aligné à gauche
+Menu                 14px     centré
+Boutons              (défaut) font-weight: bold
+
+Police : Arial, sans-serif (partout).
+
+--------------------------------------------------
+4. FORMES ET ESPACEMENTS
+--------------------------------------------------
+Arrondis (border-radius) :
+- Boutons et menu  : 999px (forme "pilule")
+- Cartes           : 24px
+- Boutons ronds    : 50%
+- Petits points    : 3px
+
+Ombres (box-shadow) :
+- Menu            : 0 2px 10px rgba(0, 0, 0, 0.05)
+- Carte normale   : 0 4px 15px rgba(220, 38, 38, 0.05)
+- Carte active    : 0 15px 35px rgba(220, 38, 38, 0.2)
+
+Espacements courants : 10px, 12px, 15px, 20px, 25px, 30px, 40px
+(rester sur ces valeurs pour garder un rythme visuel cohérent)
+
+
+--------------------------------------------------
+5. COMPOSANTS RÉUTILISABLES
+--------------------------------------------------
+
+5.1 MENU DU HAUT  (.top-menu / .menu-item)  - présent sur TOUTES les pages
+- Position fixe en haut (position: fixed; top: 0; left: 0; width: 100%)
+- Fond blanc semi-transparent, ombre légère, z-index: 1000
+- Disposition en flex, gap 12px, padding 15px 20px
+- .menu-item : flex: 1, padding 10px 4px, fond #fee2e2, texte #991b1b,
+  pas de soulignement, texte centré, forme pilule (999px)
+- Hover : fond #fecaca + léger déplacement vers le haut
+  (transform: translateY(-2px)), transition 0.25s
+- IMPORTANT : le body doit avoir padding-top: 100px pour que le contenu
+  ne passe pas sous le menu.
+
+5.2 TITRE DE PAGE  (.page-title)
+- 32px, couleur #991b1b, margin-bottom 30px
+
+5.3 CARTES  (.card)
+- Largeur 280px, hauteur minimum 320px
+- Fond #fee2e2, texte #991b1b, border-radius 24px
+- Padding 30px 24px, texte centré
+- Flex en colonne (contenu en haut, bouton en bas)
+- flex-shrink: 0 (la carte ne se rétrécit pas)
+- Variantes :
+    .card.center : carte active -> opacity 1, scale(1.08), grosse ombre, z-index 2
+    .card.side   : carte inactive -> opacity 0.5, scale(0.85)
+- Contenu texte dans .card-content (14px, aligné à gauche)
+
+5.3b CARROUSEL (cartes)
+- .pricing-container : max-width 1200px, flex en colonne, centré
+- .cards-viewport : overflow hidden, padding 30px 0
+- .cards-wrapper : flex, centré, gap 20px
+
+5.4 BOUTON PRINCIPAL  (.btn)
+- display block, largeur 100%, padding 12px, sans bordure
+- Fond #dc2626, texte blanc, gras, forme pilule, cursor pointer
+- Hover (sur carte active) : fond #b91c1c
+- Sur carte inactive (.card.side) : opacité 0.4, cursor not-allowed,
+  pointer-events none (non cliquable)
+
+5.5 INDICATEURS (points)  (.indicators / .dot)
+- .dot : 20px x 6px, fond #fecaca, arrondi 3px
+- .dot.active : fond #dc2626, largeur 32px
+- Conteneur en flex, gap 10px, margin-top 20px
+
+5.6 BOUTONS DE NAVIGATION  (.controls / .nav-btn)
+- Cercle de 48px x 48px, bordure 2px solid #dc2626
+- Fond blanc, flèche/texte #dc2626, taille 20px, centré en flex
+- cursor: pointer
+- .controls : flex, gap 40px, margin-top 25px, margin-bottom 40px
+
+
+--------------------------------------------------
+6. RESPONSIVE (mobile)
+--------------------------------------------------
+Breakpoint unique : @media (max-width: 768px)
+
+Sur mobile :
+- Les cartes passent en colonne (flex-direction: column)
+- Largeur des cartes : 90%
+- Plus d'effet de zoom ni de transparence (transform: none; opacity: 1)
+- Les boutons des cartes inactives redeviennent cliquables
+
+=> Toute nouvelle page doit rester lisible sous 768px.
+
+
+--------------------------------------------------
+7. CONVENTIONS DE CODE
+--------------------------------------------------
+- Noms de classes en minuscules, mots séparés par un tiret :
+  .top-menu, .menu-item, .page-title, .card-content, .nav-btn
+- Variantes d'état avec une classe supplémentaire : .active, .center, .side
+- Ordre dans un fichier CSS :
+    1) reset (*)  2) body  3) menu  4) titres  5) composants
+    6) états (hover, active)  7) responsive (@media) à la fin
+- Indentation : 2 espaces
+- Commentaires courts, en français ou en anglais (rester cohérent)
+- Transitions douces : 0.25s pour les survols
+
+
+--------------------------------------------------
+ENGLISH VERSION
+--------------------------------------------------
+
+STYLE GUIDELINES - SEG GROUP PROJECT
+--------------------------------------------------
+1. GENERAL RULES
+--------------------------------------------------
+- One CSS file per page (e.g. pricing.css), but the same colors,
+  fonts and components everywhere.
+- Always start the CSS with the global reset:
+ 
+    * { box-sizing: border-box; }
+ 
+- One font for the whole site: Arial, sans-serif
+- Main layout: body is a flex container, in a column, with centered items.
+- Keep the CSS simple: no external libraries, no frameworks.
+ 
+--------------------------------------------------
+2. COLOR PALETTE (red/pink theme)
+--------------------------------------------------
+Color                Code        Usage
+-------------------  ----------  -----------------------------------------
+Page background      #fdf2f2     body background
+Very light red       #fee2e2     cards, menu buttons
+Light red            #fecaca     menu hover, inactive dots
+Main red             #dc2626     buttons, borders, active element
+Dark red (hover)     #b91c1c     hover on main buttons
+Text red             #991b1b     titles and text
+White                #ffffff     navigation button background, button text
+Menu (background)    rgba(255, 255, 255, 0.95)   menu bar
+ 
+=> Use ONLY these colors. No new color without the group's agreement.
+ 
+--------------------------------------------------
+3. TYPOGRAPHY
+--------------------------------------------------
+Element              Size       Details
+-------------------  ---------  ---------------------------
+Page title           32px       color #991b1b, bottom margin 30px
+Card title (h3)      24px       bottom margin 15px
+Card text            14px       line-height 1.6, opacity 0.9, left-aligned
+Menu                 14px       centered
+Buttons              (default)  font-weight: bold
+ 
+Font: Arial, sans-serif (everywhere).
+ 
+--------------------------------------------------
+4. SHAPES AND SPACING
+--------------------------------------------------
+Rounded corners (border-radius):
+- Buttons and menu : 999px ("pill" shape)
+- Cards            : 24px
+- Round buttons    : 50%
+- Small dots       : 3px
+ 
+Shadows (box-shadow):
+- Menu             : 0 2px 10px rgba(0, 0, 0, 0.05)
+- Normal card      : 0 4px 15px rgba(220, 38, 38, 0.05)
+- Active card      : 0 15px 35px rgba(220, 38, 38, 0.2)
+ 
+Common spacing values: 10px, 12px, 15px, 20px, 25px, 30px, 40px
+(stick to these values to keep a consistent visual rhythm)
+ 
+ 
+--------------------------------------------------
+5. REUSABLE COMPONENTS
+--------------------------------------------------
+ 
+5.1 TOP MENU  (.top-menu / .menu-item)  - present on ALL pages
+- Fixed at the top (position: fixed; top: 0; left: 0; width: 100%)
+- Semi-transparent white background, light shadow, z-index: 1000
+- Flex layout, gap 12px, padding 15px 20px
+- .menu-item: flex: 1, padding 10px 4px, background #fee2e2, text #991b1b,
+  no underline, centered text, pill shape (999px)
+- Hover: background #fecaca + slight upward movement
+  (transform: translateY(-2px)), 0.25s transition
+- IMPORTANT: the body must have padding-top: 100px so the content
+  does not slide under the menu.
+ 
+5.2 PAGE TITLE  (.page-title)
+- 32px, color #991b1b, margin-bottom 30px
+ 
+5.3 CARDS  (.card)
+- Width 280px, minimum height 320px
+- Background #fee2e2, text #991b1b, border-radius 24px
+- Padding 30px 24px, centered text
+- Flex in a column (content at the top, button at the bottom)
+- flex-shrink: 0 (the card does not shrink)
+- Variants:
+    .card.center : active card -> opacity 1, scale(1.08), large shadow, z-index 2
+    .card.side   : inactive card -> opacity 0.5, scale(0.85)
+- Text content goes in .card-content (14px, left-aligned)
+ 
+5.3b CAROUSEL (cards)
+- .pricing-container : max-width 1200px, flex in a column, centered
+- .cards-viewport    : overflow hidden, padding 30px 0
+- .cards-wrapper     : flex, centered, gap 20px
+ 
+5.4 MAIN BUTTON  (.btn)
+- display block, width 100%, padding 12px, no border
+- Background #dc2626, white text, bold, pill shape, cursor pointer
+- Hover (on active card): background #b91c1c
+- On inactive card (.card.side): opacity 0.4, cursor not-allowed,
+  pointer-events none (not clickable)
+ 
+5.5 INDICATORS (dots)  (.indicators / .dot)
+- .dot: 20px x 6px, background #fecaca, rounded 3px
+- .dot.active: background #dc2626, width 32px
+- Container is flex, gap 10px, margin-top 20px
+ 
+5.6 NAVIGATION BUTTONS  (.controls / .nav-btn)
+- 48px x 48px circle, border 2px solid #dc2626
+- White background, arrow/text #dc2626, size 20px, centered with flex
+- cursor: pointer
+- .controls: flex, gap 40px, margin-top 25px, margin-bottom 40px
+ 
+ 
+--------------------------------------------------
+6. RESPONSIVE (mobile)
+--------------------------------------------------
+Single breakpoint: @media (max-width: 768px)
+ 
+On mobile:
+- Cards stack in a column (flex-direction: column)
+- Card width: 90%
+- No more zoom or transparency effects (transform: none; opacity: 1)
+- Buttons on inactive cards become clickable again
+ 
+=> Every new page must remain readable below 768px.
+ 
+ 
+--------------------------------------------------
+7. CODING CONVENTIONS
+--------------------------------------------------
+- Class names in lowercase, words separated by a hyphen:
+  .top-menu, .menu-item, .page-title, .card-content, .nav-btn
+- State variants use an extra class: .active, .center, .side
+- Order within a CSS file:
+    1) reset (*)  2) body  3) menu  4) titles  5) components
+    6) states (hover, active)  7) responsive (@media) at the end
+- Indentation: 2 spaces
+- Short comments, in French or English (stay consistent)
+- Smooth transitions: 0.25s for hover effects

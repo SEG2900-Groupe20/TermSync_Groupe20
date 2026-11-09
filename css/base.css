@@ -1,1 +1,30 @@
 /* Styles généraux : body, titres, liens, mise en page */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--police-principale);
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--couleur-texte);
+}
+
+/* Largeur maximale du contenu, centré dans la page */
+.conteneur {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--espace-moyen);
+}

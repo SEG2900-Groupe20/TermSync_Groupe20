@@ -3,16 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solutions | CourseSync</title>
+  <title>Solutions | TermSync</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/pages/pricing.css">
+  <link rel="stylesheet" href="../css/pages/solutions.css">
+  <script src="../js/utils/navbar.js" defer></script>
 </head>
-<body>
-  <header class="site-header"></header>
-  <main></main>
-  <footer class="site-footer"></footer>
+<body class="page-solutions">
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Partie 1 : présentation + appareils -->
+    <section class="conteneur intro">
+      <div class="boite-texte">
+        <span class="badge">Pour les étudiants</span>
+        <h1 class="page-title">Vos plans de cours deviennent <span class="accent">un calendrier.</span></h1>
+        <p>
+          Importez un plan de cours en PDF, en Word ou même en photo.
+          TermSync repère vos examens, vos devoirs et leur pondération,
+          puis les place dans un calendrier prêt à consulter.
+        </p>
+        <div>
+          <a href="pricing.html" class="bouton">Commencer</a>
+        </div>
+      </div>
+
+      <div class="appareils" aria-hidden="true">
+        <div class="ordinateur">
+          <div class="ecran ecran-ordinateur">
+            <div class="points"><span></span><span></span><span></span></div>
+            <div class="ordinateur-corps">
+              <div class="ordinateur-menu"></div>
+              <div class="ordinateur-contenu">
+                <div class="trait trait-titre"></div>
+                <div class="trait trait-sous-titre"></div>
+                <div class="bloc"></div>
+              </div>
+            </div>
+            <span class="etiquette">Ordinateur</span>
+          </div>
+        </div>
+        <div class="ordinateur-socle"></div>
+
+        <div class="telephone">
+          <div class="ecran ecran-telephone">
+            <div class="trait trait-telephone"></div>
+            <div class="carte-mini"></div>
+            <div class="carte-mini"></div>
+            <span class="etiquette">Téléphone</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partie 2 : les étapes -->
+    <section class="section section-grise">
+      <div class="conteneur etapes-zone">
+        <div class="boite-texte">
+          <h2>Comment ça marche ?</h2>
+          <p>Quatre étapes simples, sans rien recopier à la main.</p>
+          <p id="detail-etape" class="detail-etape" aria-live="polite"></p>
+        </div>
+
+        <ol class="etapes">
+          <li class="etape actif" data-detail="Déposez un PDF, un document Word ou une photo de votre plan de cours. Un fichier par cours suffit.">
+            <span class="cercle">1</span>
+            <p>Importez votre plan de cours</p>
+          </li>
+          <li class="etape" data-detail="TermSync lit le document et repère les dates d'examen, les échéances de devoirs et ce que vaut chaque évaluation.">
+            <span class="cercle">2</span>
+            <p>TermSync trouve les dates et les pondérations</p>
+          </li>
+          <li class="etape" data-detail="Les informations trouvées s'affichent clairement. Vous corrigez une date si nécessaire, en quelques secondes.">
+            <span class="cercle">3</span>
+            <p>Vous vérifiez en un coup d'œil</p>
+          </li>
+          <li class="etape" data-detail="Tout est ajouté à votre calendrier de session. Vous voyez d'un coup ce qui s'en vient, cours après cours.">
+            <span class="cercle">4</span>
+            <p>Votre calendrier est prêt</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Partie 3 : les solutions -->
+    <section class="section conteneur solutions-zone">
+      <div>
+        <h2>Ce que TermSync fait pour vous</h2>
+        <div class="grille-solutions">
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Dates d'examen</h3>
+            <p>Tous vos examens au même endroit.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Devoirs</h3>
+            <p>Chaque échéance est ajoutée au calendrier.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Pondérations</h3>
+            <p>Voyez combien vaut chaque évaluation.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>PDF, Word, photo</h3>
+            <p>Importez le format que vous avez.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Plusieurs cours</h3>
+            <p>Toute votre session dans un seul calendrier.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Rien à recopier</h3>
+            <p>Fini la saisie manuelle des dates.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Moins de stress</h3>
+            <p>Vous savez toujours ce qui arrive.</p>
+          </article>
+          <article class="solution">
+            <div class="icone"></div>
+            <h3>Aucun oubli</h3>
+            <p>Plus d'échéance manquée.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tablette" aria-hidden="true">
+        <div class="ecran ecran-tablette">
+          <div class="trait trait-titre"></div>
+          <div class="calendrier" id="calendrier"></div>
+          <span class="etiquette">Aperçu du calendrier</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 TermSync</p>
+  </footer>
+
   <script src="../js/main.js"></script>
   <script src="../js/pages/solutions.js"></script>
 </body>

@@ -1,0 +1,490 @@
+/* Page Solutions : suit style_guidelines.txt, mise en page de l'accueil */
+
+/* 1) Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Couleurs : rouge du guide pour les détails, fond blanc et texte noir */
+.page-solutions {
+  --couleur-fond: #ffffff;
+  --couleur-fond-doux: #f4f4f4;
+  --couleur-texte: #111019;
+  --couleur-texte-doux: #4a4858;
+  --couleur-bordure: #e5e5e5;
+  --couleur-accent: #dc2626;
+  --couleur-accent-texte: #ffffff;
+  --couleur-accent-fonce: #b91c1c;
+  --couleur-titre: #991b1b;
+  --couleur-rouge-clair: #fecaca;
+  --couleur-rouge-tres-clair: #fee2e2;
+}
+
+/* 2) Body : flex en colonne, éléments centrés (le menu vient de components.css) */
+.page-solutions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page-solutions main,
+.page-solutions .site-footer {
+  width: 100%;
+}
+
+.page-solutions .conteneur {
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* 4) Titres et textes */
+.page-title {
+  margin-bottom: 30px;
+  color: var(--couleur-titre);
+  font-size: 32px;
+}
+
+.boite-texte h2,
+.solutions-zone h2 {
+  margin-bottom: 15px;
+  color: var(--couleur-titre);
+  font-size: 24px;
+}
+
+.solutions-zone h2 {
+  margin-bottom: 30px;
+}
+
+.accent {
+  color: var(--couleur-accent);
+}
+
+.boite-texte p {
+  max-width: 480px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 5) Composants */
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.section-grise {
+  background-color: var(--couleur-fond-doux);
+}
+
+.boite-texte {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 6px 15px;
+  border: 1.5px solid var(--couleur-accent);
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: var(--couleur-accent);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Bouton principal */
+.page-solutions .bouton {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 999px;
+  background-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+  font-weight: bold;
+  transition: background-color 0.25s;
+}
+
+.page-solutions .bouton:hover {
+  background-color: var(--couleur-accent-fonce);
+}
+
+.page-solutions .site-footer {
+  border-top-color: var(--couleur-bordure);
+}
+
+/* Appareils dessinés (comme l'accueil) */
+.ecran {
+  --teinte-forte: rgba(255, 255, 255, 0.75);
+  --teinte: rgba(255, 255, 255, 0.35);
+  --teinte-douce: rgba(255, 255, 255, 0.16);
+  --etiquette: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.etiquette {
+  margin-top: auto;
+  color: var(--etiquette);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.trait {
+  flex: none;
+  border-radius: 4px;
+}
+
+.trait-titre {
+  width: 55%;
+  height: 14px;
+  background-color: var(--teinte-forte);
+}
+
+.trait-sous-titre {
+  width: 80%;
+  height: 10px;
+  background-color: var(--teinte);
+}
+
+.trait-telephone {
+  width: 60%;
+  height: 10px;
+  background-color: var(--teinte-forte);
+}
+
+.bloc {
+  flex: 1;
+  border-radius: 8px;
+  background-color: var(--teinte-douce);
+}
+
+.carte-mini {
+  height: 45px;
+  border-radius: 8px;
+  background-color: var(--teinte-douce);
+}
+
+/* Partie 1 : présentation */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.appareils {
+  position: relative;
+  flex: 1.3 1 480px;
+  min-width: 0;
+  height: 400px;
+}
+
+.ordinateur {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 4%;
+  height: 80%;
+  padding: 12px;
+  border-radius: 18px 18px 6px 6px;
+  background-color: var(--couleur-texte);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+}
+
+.ecran-ordinateur {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--couleur-accent);
+}
+
+.points {
+  display: flex;
+  gap: 6px;
+}
+
+.points span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.ordinateur-corps {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+}
+
+.ordinateur-menu {
+  width: 22%;
+  border-radius: 8px;
+  background-color: var(--teinte-douce);
+}
+
+.ordinateur-contenu {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ordinateur-socle {
+  position: absolute;
+  top: 80%;
+  left: 6%;
+  right: 0;
+  height: 15px;
+  border-radius: 0 0 15px 15px;
+  background-color: var(--couleur-rouge-clair);
+}
+
+.telephone {
+  position: absolute;
+  top: 24%;
+  left: 0;
+  z-index: 2;
+  width: 22%;
+  height: 70%;
+  padding: 8px;
+  border-radius: 26px;
+  background-color: var(--couleur-texte);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+}
+
+.ecran-telephone {
+  gap: 10px;
+  padding: 20px 12px 12px;
+  border-radius: 19px;
+  background-color: var(--couleur-accent-fonce);
+}
+
+/* Partie 2 : les étapes */
+.etapes-zone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.detail-etape {
+  min-height: 72px;
+  padding-left: 12px;
+  border-left: 3px solid var(--couleur-accent);
+}
+
+.boite-texte .detail-etape {
+  font-size: 14px;
+}
+
+.etapes {
+  display: flex;
+  flex: 2 1 480px;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etape {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.etape p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cercle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--couleur-bordure);
+  color: var(--couleur-texte);
+  font-size: 25px;
+  font-weight: bold;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+/* Flèche entre deux cercles (pas après le dernier) */
+.etape:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  color: var(--couleur-accent);
+  font-size: 25px;
+}
+
+/* Partie 3 : les solutions */
+.solutions-zone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.solutions-zone > div:first-child {
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
+/* 4 solutions par ligne */
+.grille-solutions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.solution {
+  padding: 20px 15px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s, transform 0.25s, box-shadow 0.25s;
+}
+
+.icone {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background-color: var(--couleur-accent);
+}
+
+.solution h3 {
+  margin-bottom: 10px;
+  color: var(--couleur-titre);
+  font-size: 16px;
+}
+
+.solution p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Tablette dessinée avec un petit calendrier */
+.tablette {
+  flex: 0 0 280px;
+  height: 400px;
+  padding: 10px;
+  border-radius: 26px;
+  background-color: var(--couleur-texte);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+}
+
+.ecran-tablette {
+  --teinte-forte: rgba(17, 16, 25, 0.5);
+  --teinte: rgba(17, 16, 25, 0.22);
+  --teinte-douce: rgba(255, 255, 255, 0.5);
+  --etiquette: var(--couleur-texte);
+  padding: 20px 15px 15px;
+  border-radius: 18px;
+  background-color: var(--couleur-bordure);
+}
+
+.calendrier {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.jour {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background-color: var(--teinte-douce);
+}
+
+/* Jours d'examen ou de remise de devoir */
+.jour.important {
+  background-color: var(--couleur-accent);
+}
+
+/* 6) États (survol, actif) */
+.etape:hover .cercle {
+  transform: translateY(-2px);
+}
+
+.etape.actif .cercle {
+  border-color: var(--couleur-accent);
+  background-color: var(--couleur-accent);
+  color: var(--couleur-accent-texte);
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+}
+
+.etape:focus-visible {
+  outline: 2px solid var(--couleur-accent);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+/* Ajoutée par le JS quand la carte entre à l'écran */
+.solution.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.solution.visible:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+}
+
+/* 7) Responsive : breakpoint unique du guide */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 25px;
+  }
+
+  .appareils {
+    height: 320px;
+  }
+
+  .etapes {
+    flex-direction: column;
+  }
+
+  .etape:not(:last-child)::after {
+    content: "↓";
+    position: static;
+    display: block;
+  }
+
+  .grille-solutions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tablette {
+    flex-basis: auto;
+    width: 100%;
+    height: 340px;
+  }
+}
+
+/* Pas d'animation pour ceux qui l'ont désactivée */
+@media (prefers-reduced-motion: reduce) {
+  .solution,
+  .cercle {
+    transition: none;
+  }
+}

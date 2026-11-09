@@ -1,3 +1,23 @@
 /* Couleurs, polices, espacements partagés par toute l'équipe */
 :root {
+  /* Couleurs neutres (provisoires) */
+  --couleur-fond: #ffffff;
+  --couleur-fond-doux: #f4f4f4;
+  --couleur-texte: #222222;
+  --couleur-texte-doux: #666666;
+  --couleur-bordure: #d0d0d0;
+  --couleur-accent: #555555;
+  --couleur-accent-texte: #ffffff;
+
+  /* Police */
+  --police-principale: Arial, Helvetica, sans-serif;
+
+  /* Espacements */
+  --espace-petit: 8px;
+  --espace-moyen: 16px;
+  --espace-grand: 32px;
+  --espace-tres-grand: 64px;
+
+  /* Arrondis */
+  --arrondi: 8px;
 }
