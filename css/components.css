@@ -65,21 +65,10 @@
   text-decoration: none;
 }
 
-.menu-logo-icone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--menu-actif);
-  box-shadow: 0 8px 16px -8px rgba(220, 38, 38, 0.6);
-}
-
-.menu-logo-texte {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: -0.02em;
+.menu-logo-image {
+  display: block;
+  width: auto;
+  height: 44px;
 }
 
 /* Liens */
@@ -181,6 +170,10 @@
 
   .menu-burger {
     display: flex;
+  }
+
+  .menu-logo-image {
+    height: 36px;
   }
 
   /* Les liens passent dans un panneau sous la barre */

@@ -6,7 +6,7 @@
 // (dans index.html à la racine : src="./js/utils/navbar.js")
 //
 // Pour ajouter ou renommer un lien, modifier la liste ci-dessous.
-// Pour mettre le vrai logo, remplacer le contenu de creerLogo().
+// Le logo est l'image assets/logo/logo_termsync_recadre.png (voir creerLogo()).
 
 (function () {
   // Adresse de ce script : permet de retrouver la racine du site
@@ -32,26 +32,19 @@
     return chemin.split('/').pop() || 'index.html';
   }
 
-  // Logo : icône + nom. Remplacer par une image quand le vrai logo existera.
+  // Logo : image dans assets/logo (version recadrée, sans marges)
   function creerLogo() {
     const logo = document.createElement('a');
     logo.className = 'menu-logo';
     logo.href = adresse('index.html');
-    logo.setAttribute('aria-label', 'Retour à l\'accueil');
+    logo.setAttribute('aria-label', 'TermSync, retour à l\'accueil');
 
-    const icone = document.createElement('span');
-    icone.className = 'menu-logo-icone';
-    icone.innerHTML =
-      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" ' +
-      'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>';
+    const image = document.createElement('img');
+    image.className = 'menu-logo-image';
+    image.src = adresse('assets/logo/logo_termsync_recadre.png');
+    image.alt = 'TermSync';
 
-    const texte = document.createElement('span');
-    texte.className = 'menu-logo-texte';
-    texte.textContent = '[Logo]';
-
-    logo.appendChild(icone);
-    logo.appendChild(texte);
+    logo.appendChild(image);
     return logo;
   }
 
