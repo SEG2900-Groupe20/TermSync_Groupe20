@@ -4,7 +4,7 @@
   --accent: #d9284e;
   --text: #111019;
   --text-muted: #4A4858;
-  --bg: #ffe1e1;
+  --bg: #ffffff;
   --white: #FFFFFF;
   --border: #E7E5F0;
   --logo: #ff799d;
@@ -65,7 +65,7 @@ mark {
   font-size: 13px;
   font-weight: 600;
   color: #ae1818;
-  background: #fff1fa;
+  background: #fee2e2;
   padding: 6px 14px;
   border-radius: 999px;
 }
