@@ -1,15 +1,16 @@
+
 /* ===== Variables ===== */
 :root {
-  --accent: #6D28D9;
-  --text: #111019;
-  --text-muted: #4A4858;
-  --bg: #FBFAFF;
+  --accent: #dc2626;
+  --text: #991b1b;
+  --text-muted: #6b4545;
+  --bg: #fdf2f2;
   --white: #FFFFFF;
-  --border: #E7E5F0;
-  --logo: #2BA8E8;
-  --laptop: #7C3AED;
-  --phone: #EC4899;
-  --tablet: #5EE0C9;
+  --border: #fecaca;
+  --logo: #53a4f7;
+  --laptop: #dc2626;
+  --phone: #ec4899;
+  --tablet: #fb923c;
   --device-frame: #1C1B26;
 }
 
@@ -27,7 +28,7 @@ body {
 }
 
 a {
-  color: #3B3A4A;
+  color: #991b1b;
 }
 
 a:hover {
@@ -57,8 +58,8 @@ a:hover {
   align-self: flex-start;
   font-size: 13px;
   font-weight: 600;
-  color: #5B21B6;
-  background: #EDE7FE;
+  color: #991b1b;
+  background: #fee2e2;
   padding: 6px 14px;
   border-radius: 999px;
 }
@@ -96,7 +97,7 @@ a:hover {
   min-height: 48px;
   padding: 0 22px;
   border-radius: 12px;
-  border: 1.5px solid #D6D3E3;
+  border: 1.5px solid #fecaca;
   background: var(--white);
   color: var(--text);
   font-weight: 600;
@@ -112,12 +113,13 @@ a:hover {
   height: 460px;
 }
 
-/* Teintes utilisées dans les écrans (claires sur fond coloré) */
+/* Couleurs internes des écrans */
 .screen {
   --tint-strong: rgba(255, 255, 255, 0.75);
   --tint: rgba(255, 255, 255, 0.35);
   --tint-soft: rgba(255, 255, 255, 0.16);
   --label: #FFFFFF;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -125,7 +127,7 @@ a:hover {
   height: 100%;
 }
 
-/* Teintes sombres pour l'écran turquoise */
+/* Écran clair */
 .screen--light {
   --tint-strong: rgba(17, 16, 25, 0.5);
   --tint: rgba(17, 16, 25, 0.22);
@@ -150,7 +152,7 @@ a:hover {
   font-weight: 700;
 }
 
-/* Ordinateur */
+/* ===== Ordinateur ===== */
 .laptop {
   position: absolute;
   top: 0;
@@ -160,7 +162,8 @@ a:hover {
   background: var(--device-frame);
   border-radius: 18px 18px 6px 6px;
   padding: 12px;
-  box-shadow: 0 30px 60px -20px rgba(76, 29, 149, 0.35);
+  box-shadow: 0 30px 60px -20px
+    rgba(220, 38, 38, 0.35);
 }
 
 .laptop__screen {
@@ -206,11 +209,11 @@ a:hover {
   left: 6%;
   right: 0;
   height: 14px;
-  background: #D9D6E4;
+  background: #f3d4d4;
   border-radius: 0 0 14px 14px;
 }
 
-/* Téléphone */
+/* ===== Téléphone ===== */
 .phone {
   position: absolute;
   left: 0;
@@ -221,7 +224,8 @@ a:hover {
   background: var(--device-frame);
   border-radius: 26px;
   padding: 8px;
-  box-shadow: 0 24px 48px -16px rgba(190, 24, 93, 0.4);
+  box-shadow: 0 24px 48px -16px
+    rgba(236, 72, 153, 0.4);
 }
 
 .phone__screen {
@@ -231,7 +235,7 @@ a:hover {
   gap: 8px;
 }
 
-/* Tablette */
+/* ===== Tablette ===== */
 .tablet {
   position: absolute;
   right: -2%;
@@ -242,7 +246,8 @@ a:hover {
   background: var(--device-frame);
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 0 24px 48px -16px rgba(13, 148, 136, 0.45);
+  box-shadow: 0 24px 48px -16px
+    rgba(251, 146, 60, 0.45);
 }
 
 .tablet__screen {
@@ -268,7 +273,8 @@ a:hover {
   gap: 8px;
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease,
+    transform 0.5s ease;
   pointer-events: none;
 }
 
@@ -289,7 +295,7 @@ a:hover {
   gap: 14px;
 }
 
-/* Indicateurs (points) générés par script.js */
+/* ===== Indicateurs ===== */
 .indicators {
   display: flex;
   gap: 2px;
@@ -313,7 +319,8 @@ a:hover {
   height: 6px;
   border-radius: 99px;
   background: var(--tint);
-  transition: width 0.3s ease, background 0.3s ease;
+  transition: width 0.3s ease,
+    background 0.3s ease;
 }
 
 .indicator.is-active::before {
@@ -327,7 +334,7 @@ a:hover {
   border-radius: 4px;
 }
 
-/* ===== Éléments dessinés dans les slides ===== */
+/* ===== Éléments des slides ===== */
 .s-line {
   border-radius: 4px;
   flex: none;
@@ -441,7 +448,7 @@ a:hover {
   background: var(--tint-soft);
 }
 
-/* Flèche */
+/* ===== Flèche ===== */
 .arrow {
   position: absolute;
   left: 4%;
@@ -450,7 +457,7 @@ a:hover {
   height: 30%;
 }
 
-/* ===== Bouton de téléchargement fixe ===== */
+/* ===== Bouton de téléchargement ===== */
 .download-btn {
   position: fixed;
   left: 24px;
@@ -467,7 +474,8 @@ a:hover {
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
-  box-shadow: 0 14px 30px -10px rgba(76, 29, 149, 0.55);
+  box-shadow: 0 14px 30px -10px
+    rgba(220, 38, 38, 0.55);
 }
 
 .download-btn:hover {
@@ -490,7 +498,7 @@ a:hover {
   }
 }
 
-/* Pas d'animation pour ceux qui l'ont désactivée */
+/* ===== Accessibilité ===== */
 @media (prefers-reduced-motion: reduce) {
   .slide,
   .indicator::before {

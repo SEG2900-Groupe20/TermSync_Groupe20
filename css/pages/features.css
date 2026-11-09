@@ -9,21 +9,12 @@ body {
   background: #fdf2f2;
 }
 
-/* HEADER */
-
 /* MAIN */
 
 main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-}
-
-.page-title {
-  text-align: center;
-  font-size: 32px;
-  color: #991b1b;
-  margin-bottom: 30px;
 }
 
 /* FEATURES */
