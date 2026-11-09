@@ -13,7 +13,7 @@ body {
 
 .site-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 15px;
   padding: 20px;
 }
@@ -38,13 +38,6 @@ main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-}
-
-.page-title {
-  text-align: center;
-  font-size: 32px;
-  color: #991b1b;
-  margin-bottom: 30px;
 }
 
 /* FEATURES */
