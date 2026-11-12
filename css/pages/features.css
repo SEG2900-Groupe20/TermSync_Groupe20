@@ -25,7 +25,7 @@ main {
   align-items: center;
   gap: 25px;
 
-  padding: 35px;
+  padding: 25px;
   margin-bottom: 40px;
 
   background: white;
@@ -65,8 +65,9 @@ main {
   height: 110px;
   border-radius: 50%;
 
-  background: #53a4f7;
+  background: #af4949;
   color: white;
+  font-size: 5pc;
   font-weight: bold;
 }
 
@@ -83,15 +84,15 @@ main {
 /* DIFFERENT IMAGE POSITIONS */
 
 #feature1 .feature-image:first-child {
-  background: #fb923c;
+  background: #ffffff;
 }
 
 #feature2 .feature-image:first-child {
-  background: #ec65ae;
+  background: #ffffff;
 }
 
 #feature3 .feature-image:last-child {
-  background: #ef4444;
+  background: #ffffff;
 }
 
 /* MOBILE */
