@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablette 1 : vue semaine</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .main { padding: 20px 22px; gap: 12px; }
+    .edt { flex: 1; display: grid; grid-template-columns: 44px repeat(5, 1fr);
+           grid-template-rows: 30px repeat(9, 1fr); column-gap: 6px; min-height: 0; position: relative; }
+    .edt .j { font-size: 12px; font-weight: 700; color: var(--doux); text-align: center; }
+    .edt .j b { font-size: 15px; color: var(--texte); margin-left: 3px; }
+    .edt .j.auj b { background: var(--rouge); color: #fff; border-radius: 999px; padding: 1px 7px; }
+    .edt .h { font-size: 11px; font-weight: 600; color: #a5a3b0; border-top: 1px solid var(--bord); padding-top: 2px; }
+    .edt .lg { border-top: 1px solid var(--bord); grid-column: 2 / -1; }
+    .c { border-radius: 10px; padding: 6px 8px; font-size: 12px; font-weight: 700; line-height: 1.25; margin: 2px 0; z-index: 1; }
+    .c small { display: block; font-weight: 500; opacity: .85; font-size: 11px; }
+    .ech { z-index: 2; align-self: start; margin-top: 4px; background: var(--rouge); color: #fff; border-radius: 8px;
+           font-size: 11px; font-weight: 800; padding: 4px 7px; box-shadow: 0 4px 10px rgba(220, 38, 38, .3); }
+  </style>
+</head>
+<body>
+  <div class="ecran-tab">
+    <aside class="rail">
+      <img src="../../assets/logo/favicon.png" alt="">
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div><h1>Semaine du 9 novembre</h1><p>3 échéances · 1 quiz</p></div>
+        <span class="avatar">L</span>
+      </div>
+
+      <div class="edt">
+        <!-- En-têtes des jours -->
+        <span></span>
+        <span class="j">Lun<b>9</b></span>
+        <span class="j auj">Mar<b>10</b></span>
+        <span class="j">Mer<b>11</b></span>
+        <span class="j">Jeu<b>12</b></span>
+        <span class="j">Ven<b>13</b></span>
+
+        <!-- Heures (lignes 2 à 10 = 8 h à 16 h) -->
+        <span class="h" style="grid-row: 2">8 h</span><span class="lg" style="grid-row: 2"></span>
+        <span class="h" style="grid-row: 3">9 h</span><span class="lg" style="grid-row: 3"></span>
+        <span class="h" style="grid-row: 4">10 h</span><span class="lg" style="grid-row: 4"></span>
+        <span class="h" style="grid-row: 5">11 h</span><span class="lg" style="grid-row: 5"></span>
+        <span class="h" style="grid-row: 6">12 h</span><span class="lg" style="grid-row: 6"></span>
+        <span class="h" style="grid-row: 7">13 h</span><span class="lg" style="grid-row: 7"></span>
+        <span class="h" style="grid-row: 8">14 h</span><span class="lg" style="grid-row: 8"></span>
+        <span class="h" style="grid-row: 9">15 h</span><span class="lg" style="grid-row: 9"></span>
+        <span class="h" style="grid-row: 10">16 h</span><span class="lg" style="grid-row: 10"></span>
+
+        <!-- Cours -->
+        <div class="c" style="grid-column: 2; grid-row: 2 / 4; background: var(--mat-c); color: var(--mat);">MAT1341<small>STE B0138</small></div>
+        <div class="c" style="grid-column: 4; grid-row: 2 / 4; background: var(--mat-c); color: var(--mat);">MAT1341<small>STE B0138</small></div>
+        <div class="c" style="grid-column: 2; grid-row: 6 / 8; background: var(--iti-c); color: var(--iti);">ITI1121<small>CRX C140</small></div>
+        <div class="c" style="grid-column: 5; grid-row: 4 / 6; background: var(--iti-c); color: var(--iti);">ITI1121<small>CRX C140</small></div>
+        <div class="c" style="grid-column: 3; grid-row: 4 / 6; background: var(--phi-c); color: var(--phi);">PHI1101<small>DMS 1120</small></div>
+        <div class="c" style="grid-column: 3; grid-row: 8 / 11; background: var(--seg-c); color: var(--seg);">SEG2105<small>Labo · CBY B02</small></div>
+        <div class="c" style="grid-column: 6; grid-row: 6 / 8; background: var(--csi-c); color: var(--csi);">CSI2110<small>MRT 205</small></div>
+        <div class="c" style="grid-column: 4; grid-row: 7 / 9; background: var(--csi-c); color: var(--csi);">CSI2110<small>MRT 205</small></div>
+
+        <!-- Échéances -->
+        <span class="ech" style="grid-column: 2; grid-row: 4;">Quiz 2</span>
+        <span class="ech" style="grid-column: 5; grid-row: 9;">Devoir 3 · 23 h 59</span>
+        <span class="ech" style="grid-column: 6; grid-row: 9;">Labo 4</span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

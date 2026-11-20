@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordinateur 1 : tableau de bord</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .stats { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px; }
+    .stat { display: flex; flex-direction: column; gap: 6px; }
+    .stat strong { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+    .stat small { font-size: 13px; color: var(--doux); }
+    .stat.rouge { background: var(--rouge); border-color: var(--rouge); color: #fff; }
+    .stat.rouge .etiquette, .stat.rouge small { color: #fecaca; }
+    .bas-grille { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; flex: 1; min-height: 0; }
+    .semaine { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .jour { display: flex; flex-direction: column; gap: 6px; }
+    .jour > span { font-size: 12px; font-weight: 700; color: var(--doux); text-align: center; }
+    .jour > span b { display: block; font-size: 17px; color: var(--texte); }
+    .jour.auj > span b { background: var(--rouge); color: #fff; border-radius: 10px; padding: 2px 0; }
+    .ev { border-radius: 8px; padding: 6px 7px; font-size: 11px; font-weight: 700; line-height: 1.25; }
+  </style>
+</head>
+<body>
+  <div class="ecran-ordi">
+    <aside class="side">
+      <img class="logo" src="../../assets/logo/logo_termsync_recadre.png" alt="">
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Tableau de bord</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendrier</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Importer</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg>Mes cours</div>
+      <div class="bas"><span class="avatar">L</span><span><b>Léa M.</b>Automne 2026</span></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div>
+          <h1>Bonjour, Léa</h1>
+          <p>Mardi 10 novembre · Semaine 10 sur 13</p>
+        </div>
+        <span class="pastille" style="background: var(--rouge-clair); color: var(--rouge-fonce);">4 évaluations cette semaine</span>
+      </div>
+
+      <div class="stats">
+        <div class="carte stat rouge">
+          <span class="etiquette">Prochaine échéance</span>
+          <strong>Devoir 3 · ITI1121</strong>
+          <small>Jeudi 12 nov. · 23 h 59 · 15 %</small>
+        </div>
+        <div class="carte stat">
+          <span class="etiquette">Prochain examen</span>
+          <strong>CSI2110</strong>
+          <small>Mi-session · dans 7 jours</small>
+        </div>
+        <div class="carte stat">
+          <span class="etiquette">Session</span>
+          <strong>72 %</strong>
+          <div class="barre"><span style="width: 72%"></span></div>
+        </div>
+      </div>
+
+      <div class="bas-grille">
+        <div class="carte">
+          <h2>Cette semaine</h2>
+          <div class="semaine">
+            <div class="jour"><span>Lun<b>9</b></span>
+              <div class="ev" style="background: var(--mat-c); color: var(--mat);">Quiz 2<br>MAT1341</div></div>
+            <div class="jour auj"><span>Mar<b>10</b></span>
+              <div class="ev" style="background: var(--phi-c); color: var(--phi);">Lecture<br>PHI1101</div></div>
+            <div class="jour"><span>Mer<b>11</b></span></div>
+            <div class="jour"><span>Jeu<b>12</b></span>
+              <div class="ev" style="background: var(--iti-c); color: var(--iti);">Devoir 3<br>ITI1121</div></div>
+            <div class="jour"><span>Ven<b>13</b></span>
+              <div class="ev" style="background: var(--seg-c); color: var(--seg);">Labo 4<br>SEG2105</div></div>
+          </div>
+        </div>
+
+        <div class="carte">
+          <h2>À venir</h2>
+          <div class="ligne"><span class="trait" style="background: var(--iti);"></span>
+            <span class="txt"><b>Devoir 3</b><small>ITI1121 · jeu. 12 nov.</small></span><span class="poids">15 %</span></div>
+          <div class="ligne"><span class="trait" style="background: var(--csi);"></span>
+            <span class="txt"><b>Examen de mi-session</b><small>CSI2110 · mar. 17 nov.</small></span><span class="poids">30 %</span></div>
+          <div class="ligne"><span class="trait" style="background: var(--phi);"></span>
+            <span class="txt"><b>Essai</b><small>PHI1101 · jeu. 19 nov.</small></span><span class="poids">20 %</span></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

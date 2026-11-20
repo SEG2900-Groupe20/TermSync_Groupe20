@@ -96,3 +96,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(start, sliderIndex * 800);
   });
 });
+
+const section = document.querySelector('.termsync');
+const branches = section.querySelectorAll('.branch');
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth <= 768) {               // mobile : tout visible
+    branches.forEach(b => b.classList.add('is-visible'));
+    return;
+  }
+  const rect = section.getBoundingClientRect();
+  const progress = -rect.top / (section.offsetHeight - innerHeight); // 0 → 1
+  // Reste entre la première et la dernière branche : sinon, au début et à la fin
+  // de la section, aucune branche n'est affichée et il reste un grand vide.
+  const active = Math.min(branches.length - 1, Math.max(0, Math.floor(progress * branches.length)));
+  branches.forEach((b, i) => b.classList.toggle('is-visible', i === active));
+});

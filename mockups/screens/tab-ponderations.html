@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablette 2 : pondérations</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .main { padding: 22px 24px; gap: 14px; }
+    .liste { display: flex; flex-direction: column; gap: 14px; }
+    .cours { display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: 14px; }
+    .cours b { font-size: 15px; }
+    .cours b i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+    .pile { display: flex; height: 38px; border-radius: 10px; overflow: hidden; gap: 3px; }
+    .pile span { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+                 color: #fff; white-space: nowrap; overflow: hidden; }
+    .pile span.fait { opacity: .45; }
+    .note { display: flex; gap: 18px; font-size: 12px; color: var(--doux); font-weight: 600; }
+    .note i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -2px; }
+  </style>
+</head>
+<body>
+  <div class="ecran-tab">
+    <aside class="rail">
+      <img src="../../assets/logo/favicon.png" alt="">
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div>
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div><h1>Pondérations</h1><p>Combien vaut chaque évaluation, cours par cours.</p></div>
+      </div>
+
+      <div class="carte liste">
+        <div class="cours"><b><i style="background: var(--mat);"></i>MAT1341</b>
+          <div class="pile">
+            <span class="fait" style="width: 10%; background: var(--mat);">Q</span>
+            <span class="fait" style="width: 25%; background: var(--mat);">Mi-session 25 %</span>
+            <span style="width: 25%; background: var(--mat);">Projet 25 %</span>
+            <span style="width: 40%; background: #1d4ed8;">Final 40 %</span>
+          </div></div>
+        <div class="cours"><b><i style="background: var(--iti);"></i>ITI1121</b>
+          <div class="pile">
+            <span class="fait" style="width: 15%; background: var(--iti);">D1 15 %</span>
+            <span class="fait" style="width: 30%; background: var(--iti);">Mi-session 30 %</span>
+            <span style="width: 15%; background: var(--iti);">D3 15 %</span>
+            <span style="width: 40%; background: var(--rouge-fonce);">Final 40 %</span>
+          </div></div>
+        <div class="cours"><b><i style="background: var(--seg);"></i>SEG2105</b>
+          <div class="pile">
+            <span class="fait" style="width: 20%; background: var(--seg);">Labos 20 %</span>
+            <span style="width: 35%; background: var(--seg);">Projet 35 %</span>
+            <span style="width: 45%; background: #15803d;">Final 45 %</span>
+          </div></div>
+        <div class="cours"><b><i style="background: var(--csi);"></i>CSI2110</b>
+          <div class="pile">
+            <span class="fait" style="width: 20%; background: var(--csi);">Devoirs 20 %</span>
+            <span style="width: 30%; background: var(--csi);">Mi-session 30 %</span>
+            <span style="width: 50%; background: #b45309;">Final 50 %</span>
+          </div></div>
+        <div class="cours"><b><i style="background: var(--phi);"></i>PHI1101</b>
+          <div class="pile">
+            <span class="fait" style="width: 30%; background: var(--phi);">Tests 30 %</span>
+            <span style="width: 20%; background: var(--phi);">Essai 20 %</span>
+            <span style="width: 50%; background: #6d28d9;">Final 50 %</span>
+          </div></div>
+      </div>
+
+      <div class="note">
+        <span><i style="background: #b8b6c2;"></i>Déjà passé</span>
+        <span><i style="background: var(--texte);"></i>À venir</span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordinateur 3 : import d'un plan de cours</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .main { gap: 14px; }
+    .deux { flex: 1; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 14px; min-height: 0; }
+    .doc { display: flex; flex-direction: column; gap: 12px; }
+    .fichier { display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+               background: var(--fond); border-radius: 12px; }
+    .fichier .pdf { width: 38px; height: 46px; border-radius: 6px; background: var(--rouge); color: #fff;
+                    font-size: 11px; font-weight: 800; display: grid; place-items: center; }
+    .fichier b { display: block; font-size: 14px; }
+    .fichier small { font-size: 12px; color: var(--doux); }
+    .page { flex: 1; border: 1px solid var(--bord); border-radius: 10px; padding: 14px;
+            display: flex; flex-direction: column; gap: 8px; }
+    .page .l { height: 7px; background: var(--bord); border-radius: 4px; }
+    .page .h { background: rgba(220, 38, 38, .18); outline: 2px solid var(--rouge); outline-offset: 2px; }
+    .ok { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #15803d; }
+    .ok i { width: 18px; height: 18px; border-radius: 50%; background: #16a34a; color: #fff;
+            display: grid; place-items: center; font-style: normal; font-size: 11px; }
+    .trouves { display: flex; flex-direction: column; }
+    .trouves .ligne { padding: 8px 0; }
+    .coche { width: 20px; height: 20px; border-radius: 6px; background: var(--rouge); color: #fff;
+             display: grid; place-items: center; font-size: 12px; font-weight: 800; flex: none; }
+    .pied { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 10px; }
+    .pied span { font-size: 13px; color: var(--doux); }
+    .pied .bouton { color: #fff; font-size: 15px; }
+    .pied b { color: var(--texte); }
+  </style>
+</head>
+<body>
+  <div class="ecran-ordi">
+    <aside class="side">
+      <img class="logo" src="../../assets/logo/logo_termsync_recadre.png" alt="">
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Tableau de bord</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendrier</div>
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Importer</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg>Mes cours</div>
+      <div class="bas"><span class="avatar">L</span><span><b>Léa M.</b>Automne 2026</span></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div>
+          <h1>Importer un plan de cours</h1>
+          <p>PDF, Word ou photo : TermSync trouve les dates pour vous.</p>
+        </div>
+      </div>
+
+      <div class="deux">
+        <div class="carte doc">
+          <div class="fichier">
+            <span class="pdf">PDF</span>
+            <span><b>plan-de-cours-ITI1121.pdf</b><small>4 pages · 312 Ko</small></span>
+          </div>
+          <div class="page">
+            <div class="l" style="width: 55%; height: 10px; background: #d6d4dd;"></div>
+            <div class="l" style="width: 90%"></div>
+            <div class="l" style="width: 80%"></div>
+            <div class="l h" style="width: 62%"></div>
+            <div class="l" style="width: 85%"></div>
+            <div class="l h" style="width: 70%"></div>
+            <div class="l" style="width: 75%"></div>
+            <div class="l h" style="width: 58%"></div>
+            <div class="l" style="width: 88%"></div>
+          </div>
+          <span class="ok"><i>✓</i>Analyse terminée</span>
+        </div>
+
+        <div class="carte trouves">
+          <h2>4 évaluations trouvées</h2>
+          <div class="ligne"><span class="coche">✓</span>
+            <span class="txt"><b>Devoir 1</b><small>Vendredi 25 septembre</small></span><span class="poids">15 %</span></div>
+          <div class="ligne"><span class="coche">✓</span>
+            <span class="txt"><b>Examen de mi-session</b><small>Jeudi 22 octobre</small></span><span class="poids">30 %</span></div>
+          <div class="ligne"><span class="coche">✓</span>
+            <span class="txt"><b>Devoir 3</b><small>Jeudi 12 novembre</small></span><span class="poids">15 %</span></div>
+          <div class="ligne"><span class="coche">✓</span>
+            <span class="txt"><b>Examen final</b><small>Lundi 14 décembre</small></span><span class="poids">40 %</span></div>
+          <div class="pied">
+            <span>Total : <b>100 %</b></span>
+            <span class="bouton">Ajouter au calendrier</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

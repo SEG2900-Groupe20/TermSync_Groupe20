@@ -1,0 +1,99 @@
+/* Fausses captures de l'application TermSync (page d'accueil).
+   Chaque page HTML de ce dossier = un écran, exporté en PNG dans
+   assets/images/screens/ (voir README.txt de ce dossier). */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --rouge: #dc2626;
+  --rouge-fonce: #b91c1c;
+  --rouge-clair: #fee2e2;
+  --texte: #111019;
+  --doux: #6b6878;
+  --bord: #ececf0;
+  --fond: #f7f7f9;
+  --blanc: #ffffff;
+
+  /* Une couleur par cours */
+  --mat: #2563eb;  --mat-c: #dbeafe;   /* MAT1341 */
+  --iti: #dc2626;  --iti-c: #fee2e2;   /* ITI1121 */
+  --seg: #16a34a;  --seg-c: #dcfce7;   /* SEG2105 */
+  --csi: #d97706;  --csi-c: #fef3c7;   /* CSI2110 */
+  --phi: #7c3aed;  --phi-c: #ede9fe;   /* PHI1101 */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: var(--texte);
+  background: var(--fond);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg.ic { width: 22px; height: 22px; fill: none; stroke: currentColor;
+         stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ===== Formats d'écran (mêmes proportions que les appareils de l'accueil) ===== */
+.ecran-ordi { width: 960px; height: 480px; display: flex; }
+.ecran-tel  { width: 360px; height: 760px; display: flex; flex-direction: column; background: var(--blanc); }
+.ecran-tab  { width: 760px; height: 480px; display: flex; }
+
+/* ===== Barre latérale (ordinateur) ===== */
+.side {
+  width: 196px; flex: none; background: var(--blanc);
+  border-right: 1px solid var(--bord);
+  padding: 22px 14px; display: flex; flex-direction: column; gap: 6px;
+}
+.side .logo { height: 30px; width: auto; align-self: flex-start; margin: 0 8px 22px; }
+.nav { display: flex; align-items: center; gap: 12px; padding: 11px 12px;
+       border-radius: 12px; font-weight: 600; font-size: 14px; color: var(--doux); white-space: nowrap; }
+.nav.actif { background: var(--rouge-clair); color: var(--rouge-fonce); }
+.side .bas { margin-top: auto; display: flex; align-items: center; gap: 10px;
+             padding: 10px; border-top: 1px solid var(--bord); font-size: 13px; color: var(--doux); }
+.side .bas b { color: var(--texte); display: block; font-size: 14px; }
+
+/* Barre latérale étroite (tablette) */
+.rail { width: 72px; flex: none; background: var(--blanc); border-right: 1px solid var(--bord);
+        display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 0; }
+.rail img { width: 38px; height: 38px; border-radius: 10px; margin-bottom: 14px; }
+.rail .nav { padding: 11px; }
+
+/* ===== Éléments communs ===== */
+.main { flex: 1; min-width: 0; padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; }
+.entete { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.entete h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.entete p  { font-size: 14px; color: var(--doux); margin-top: 2px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--rouge); color: #fff;
+          display: grid; place-items: center; font-weight: 700; flex: none; }
+.carte { background: var(--blanc); border: 1px solid var(--bord); border-radius: 16px; padding: 16px 18px; }
+.carte h2 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+.etiquette { font-size: 12px; font-weight: 700; color: var(--doux); text-transform: uppercase; letter-spacing: .04em; }
+.pastille { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px;
+            font-size: 12px; font-weight: 700; }
+.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+          background: var(--rouge); color: #fff; font-weight: 700; font-size: 15px;
+          padding: 12px 20px; border-radius: 12px; box-shadow: 0 6px 16px rgba(220, 38, 38, .25); }
+.barre { height: 10px; background: var(--bord); border-radius: 999px; overflow: hidden; }
+.barre span { display: block; height: 100%; background: var(--rouge); border-radius: 999px; }
+
+/* Ligne d'évaluation (liste « À venir », import…) */
+.ligne { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--bord); }
+.ligne:last-child { border-bottom: 0; }
+.ligne .trait { width: 5px; align-self: stretch; border-radius: 4px; flex: none; }
+.ligne .txt { flex: 1; min-width: 0; }
+.ligne .txt b { display: block; font-size: 15px; }
+.ligne .txt small { font-size: 13px; color: var(--doux); }
+.poids { font-weight: 800; font-size: 15px; }
+
+/* ===== Téléphone ===== */
+.statut { display: flex; justify-content: space-between; align-items: center;
+          padding: 14px 26px 6px; font-size: 15px; font-weight: 700; }
+.statut .icones { display: flex; gap: 6px; align-items: center; }
+.statut .icones i { display: block; background: currentColor; border-radius: 2px; }
+.onglets { margin-top: auto; display: flex; justify-content: space-around; padding: 12px 10px 26px;
+           border-top: 1px solid var(--bord); background: var(--blanc); }
+.onglets div { display: flex; flex-direction: column; align-items: center; gap: 4px;
+               font-size: 11px; font-weight: 700; color: var(--doux); }
+.onglets div.actif { color: var(--rouge); }

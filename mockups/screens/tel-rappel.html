@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Téléphone 2 : rappel</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .ecran-tel { background: linear-gradient(165deg, #ef4444 0%, #b91c1c 55%, #7f1d1d 100%); color: #fff; }
+    .heure { text-align: center; margin-top: 46px; }
+    .heure p { font-size: 18px; font-weight: 600; opacity: .9; }
+    .heure strong { display: block; font-size: 92px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+    .notifs { margin-top: auto; padding: 0 14px 40px; display: flex; flex-direction: column; gap: 10px; }
+    .notif { background: rgba(255, 255, 255, .94); color: var(--texte); border-radius: 22px; padding: 14px 16px;
+             display: flex; gap: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, .18); }
+    .notif img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+    .notif .txt { flex: 1; }
+    .notif .haut { display: flex; justify-content: space-between; font-size: 12px; color: var(--doux); font-weight: 600; }
+    .notif b { display: block; font-size: 16px; margin: 2px 0; }
+    .notif small { font-size: 14px; color: var(--doux); }
+    .notif.petite { opacity: .85; transform: scale(.96); }
+    .barre-bas { width: 130px; height: 5px; background: #fff; border-radius: 999px; margin: 0 auto 10px; opacity: .8; }
+  </style>
+</head>
+<body>
+  <div class="ecran-tel">
+    <div class="statut"><span>9:41</span>
+      <span class="icones"><i style="width:16px;height:10px"></i><i style="width:14px;height:10px;border-radius:50% 50% 0 0"></i><i style="width:24px;height:12px;border-radius:4px"></i></span></div>
+
+    <div class="heure">
+      <p>Samedi 14 novembre</p>
+      <strong>9:41</strong>
+    </div>
+
+    <div class="notifs">
+      <div class="notif">
+        <img src="../../assets/logo/favicon.png" alt="">
+        <div class="txt">
+          <div class="haut"><span>TERMSYNC</span><span>maintenant</span></div>
+          <b>Mi-session dans 3 jours</b>
+          <small>CSI2110 · mardi 17 nov. · 30 % de la note</small>
+        </div>
+      </div>
+      <div class="notif petite">
+        <img src="../../assets/logo/favicon.png" alt="">
+        <div class="txt">
+          <div class="haut"><span>TERMSYNC</span><span>hier</span></div>
+          <b>Devoir 3 remis à temps</b>
+          <small>ITI1121 · plus que 2 évaluations</small>
+        </div>
+      </div>
+    </div>
+    <div class="barre-bas"></div>
+  </div>
+</body>
+</html>

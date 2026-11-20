@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Téléphone 3 : photo d'un plan de cours</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .ecran-tel { background: #1a1820; color: #fff; }
+    .vue { flex: 1; position: relative; display: grid; place-items: center; overflow: hidden;
+           background: radial-gradient(circle at 50% 40%, #3a3644, #1a1820 75%); }
+    .feuille { width: 250px; height: 340px; background: #fbfaf7; border-radius: 6px; transform: rotate(-4deg);
+               padding: 22px 18px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 20px 40px rgba(0, 0, 0, .5); }
+    .feuille .l { height: 7px; background: #d8d6de; border-radius: 4px; }
+    .feuille .t { height: 11px; width: 60%; background: #a9a6b3; margin-bottom: 6px; }
+    .trouve { position: relative; outline: 3px solid var(--rouge); outline-offset: 4px; border-radius: 3px;
+              background: rgba(220, 38, 38, .2) !important; }
+    .trouve em { position: absolute; right: -6px; top: -26px; background: var(--rouge); color: #fff; font-style: normal;
+                 font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .coin { position: absolute; width: 34px; height: 34px; border: 4px solid #fff; opacity: .9; }
+    .coin.a { top: 120px; left: 34px; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+    .coin.b { top: 120px; right: 34px; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
+    .coin.c { bottom: 40px; left: 34px; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
+    .coin.d { bottom: 40px; right: 34px; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+    .haut { position: absolute; top: 14px; left: 0; right: 0; text-align: center; }
+    .haut span { background: rgba(0, 0, 0, .5); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+    .panneau { background: var(--blanc); color: var(--texte); border-radius: 26px 26px 0 0; padding: 18px 22px 30px;
+               display: flex; flex-direction: column; gap: 12px; }
+    .panneau .poignee { width: 40px; height: 5px; background: var(--bord); border-radius: 999px; margin: -6px auto 2px; }
+    .panneau h2 { font-size: 20px; font-weight: 800; }
+    .panneau .bouton { width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="ecran-tel">
+    <div class="statut"><span>9:41</span>
+      <span class="icones"><i style="width:16px;height:10px"></i><i style="width:14px;height:10px;border-radius:50% 50% 0 0"></i><i style="width:24px;height:12px;border-radius:4px"></i></span></div>
+
+    <div class="vue">
+      <div class="haut"><span>Cadrez votre plan de cours</span></div>
+      <span class="coin a"></span><span class="coin b"></span><span class="coin c"></span><span class="coin d"></span>
+      <div class="feuille">
+        <div class="l t"></div>
+        <div class="l" style="width: 92%"></div>
+        <div class="l" style="width: 80%"></div>
+        <div class="l" style="width: 86%"></div>
+        <div class="l trouve" style="width: 64%"><em>Quiz 3 · 5 %</em></div>
+        <div class="l" style="width: 90%"></div>
+        <div class="l" style="width: 74%"></div>
+        <div class="l trouve" style="width: 70%; margin-top: 14px;"><em>Projet · 25 %</em></div>
+        <div class="l" style="width: 84%"></div>
+        <div class="l" style="width: 78%"></div>
+        <div class="l trouve" style="width: 58%; margin-top: 14px;"><em>Final · 40 %</em></div>
+        <div class="l" style="width: 88%"></div>
+      </div>
+    </div>
+
+    <div class="panneau">
+      <div class="poignee"></div>
+      <h2>3 dates trouvées</h2>
+      <div class="ligne"><span class="trait" style="background: var(--mat);"></span>
+        <span class="txt"><b>Projet de session</b><small>MAT1341 · 30 nov.</small></span><span class="poids">25 %</span></div>
+      <span class="bouton">Ajouter au calendrier</span>
+    </div>
+  </div>
+</body>
+</html>

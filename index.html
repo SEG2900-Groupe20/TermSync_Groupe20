@@ -24,9 +24,7 @@
       <h1>Termsync, <span class="accent">sur tous vos écrans.</span></h1>
       <p>TermSync est une application conçue pour aider les étudiants à s’organiser en leur créant un emploi du temps accessible à partir de leurs plans de cours.</p>
       <span class="badge">Disponible sur mobile, tablette et ordinateur</span>
-      <div class="hero__actions">
-        <a href="pages/features.html" class="btn-secondary">Découvrir les fonctionnalités</a>
-      </div>
+      
     </section>
 
     <section class="devices" aria-label="Aperçu sur téléphone, ordinateur et tablette">
@@ -37,42 +35,22 @@
           <div class="dots"><span></span><span></span><span></span></div>
 
           <div class="slides" data-interval="4000">
+            <!-- Captures : sources dans mockups/screens/, export avec mockups/screens/export.sh -->
             <!-- Slide 1 : tableau de bord -->
             <div class="slide is-active">
-              <div class="laptop__body">
-                <div class="laptop__sidebar"></div>
-                <div class="laptop__content">
-                  <div class="s-line s-line--title"></div>
-                  <div class="s-line s-line--sub"></div>
-                  <div class="s-block"></div>
-                </div>
-              </div>
+              <img class="slide-img" src="assets/images/screens/ordi-tableau-de-bord.png" alt="Tableau de bord TermSync : prochaine échéance et évaluations de la semaine">
             </div>
-            <!-- Slide 2 : graphique -->
+            <!-- Slide 2 : calendrier du mois -->
             <div class="slide">
-              <div class="s-line s-line--title"></div>
-              <div class="s-bars">
-                <span style="height: 40%"></span>
-                <span style="height: 65%"></span>
-                <span style="height: 50%"></span>
-                <span style="height: 85%"></span>
-                <span style="height: 60%"></span>
-                <span style="height: 95%"></span>
-                <span style="height: 75%"></span>
-              </div>
+              <img class="slide-img" src="assets/images/screens/ordi-calendrier.png" alt="Calendrier du mois avec les examens et devoirs de chaque cours">
             </div>
-            <!-- Slide 3 : liste -->
+            <!-- Slide 3 : import d'un plan de cours -->
             <div class="slide">
-              <div class="s-line s-line--title"></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <img class="slide-img" src="assets/images/screens/ordi-import.png" alt="Import d'un plan de cours en PDF et évaluations trouvées">
             </div>
           </div>
 
           <div class="screen__footer">
-            <span class="device-label">Ordinateur</span>
             <div class="indicators"></div>
           </div>
         </div>
@@ -83,28 +61,22 @@
       <div class="phone">
         <div class="screen phone__screen">
           <div class="slides" data-interval="3500">
-            <!-- Slide 1 : cartes -->
+            <!-- Slide 1 : aujourd'hui -->
             <div class="slide is-active">
-              <div class="s-line s-line--phone"></div>
-              <div class="s-card"></div>
-              <div class="s-card"></div>
+              <img class="slide-img" src="assets/images/screens/tel-aujourdhui.png" alt="Vue Aujourd'hui : prochaine échéance et cours du jour">
             </div>
-            <!-- Slide 2 : progression -->
-            <div class="slide slide--center">
-              <div class="s-ring"></div>
-              <div class="s-line s-line--phone"></div>
-            </div>
-            <!-- Slide 3 : messages -->
+            <!-- Slide 2 : rappel -->
             <div class="slide">
-              <div class="s-bubble"></div>
-              <div class="s-bubble s-bubble--me"></div>
-              <div class="s-bubble"></div>
+              <img class="slide-img" src="assets/images/screens/tel-rappel.png" alt="Notification de rappel d'un examen de mi-session">
+            </div>
+            <!-- Slide 3 : photo d'un plan de cours -->
+            <div class="slide">
+              <img class="slide-img" src="assets/images/screens/tel-photo.png" alt="Photo d'un plan de cours avec les dates repérées">
             </div>
           </div>
 
           <div class="screen__footer screen__footer--column">
             <div class="indicators"></div>
-            <span class="device-label">Téléphone</span>
           </div>
         </div>
       </div>
@@ -113,32 +85,21 @@
       <div class="tablet">
         <div class="screen screen--light tablet__screen">
           <div class="slides" data-interval="4500">
-            <!-- Slide 1 : grille -->
+            <!-- Slide 1 : vue semaine -->
             <div class="slide is-active">
-              <div class="s-line s-line--tablet"></div>
-              <div class="s-grid"><div></div><div></div></div>
+              <img class="slide-img" src="assets/images/screens/tab-semaine.png" alt="Emploi du temps de la semaine avec les échéances">
             </div>
-            <!-- Slide 2 : graphique -->
+            <!-- Slide 2 : pondérations -->
             <div class="slide">
-              <div class="s-line s-line--tablet"></div>
-              <div class="s-bars">
-                <span style="height: 55%"></span>
-                <span style="height: 80%"></span>
-                <span style="height: 45%"></span>
-                <span style="height: 90%"></span>
-                <span style="height: 70%"></span>
-              </div>
+              <img class="slide-img" src="assets/images/screens/tab-ponderations.png" alt="Pondération de chaque évaluation, cours par cours">
             </div>
-            <!-- Slide 3 : liste -->
+            <!-- Slide 3 : mes cours -->
             <div class="slide">
-              <div class="s-line s-line--tablet"></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
-              <div class="s-row"><span class="s-avatar"></span><span class="s-line s-line--row"></span></div>
+              <img class="slide-img" src="assets/images/screens/tab-cours.png" alt="Liste des cours de la session et leur prochaine évaluation">
             </div>
           </div>
 
           <div class="screen__footer">
-            <span class="device-label">Tablette</span>
             <div class="indicators"></div>
           </div>
         </div>
@@ -150,9 +111,47 @@
         <path d="M266 22 L288 18 L284 40" stroke="#111019" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
     </section>
+    <section class="termsync" id="solutions">
+
+      <div class="termsync-sticky">
+        <h2 class="termsync-title">Termsync</h2>
+
+        <div class="branch branch-top">
+          <p><strong>Un compagnon d'études.</strong> Du premier cours au dernier examen.</p>
+          <img src="assets/images/screens/ordi-tableau-de-bord.png" alt="Tableau de bord TermSync">
+        </div>
+        <div class="branch branch-left">
+          <p><strong>Un repère pour ne pas se perdre.</strong> Toute la session au même endroit.</p>
+          <img src="assets/images/screens/ordi-calendrier.png" alt="Calendrier du mois">
+        </div>
+        <div class="branch branch-right">
+          <p><strong>Un allié contre le stress.</strong> Vous savez toujours ce qui arrive.</p>
+          <img src="assets/images/screens/tel-rappel.png" alt="Rappel d'examen sur téléphone">
+        </div>
+        <div class="branch branch-bottom">
+          <p><strong>Du temps gagné.</strong> Vos plans de cours font le travail.</p>
+          <img src="assets/images/screens/ordi-import.png" alt="Import d'un plan de cours">
+        </div>
+      </div>
+  
+
+
+      </section>
 
   </main>
-
+  <section class="cta">
+    <div class="esp">
+      <h1>En savoir plus sur...</h1>
+        <a href="pages/team.html" class="btn-third">Nous</a>
+        <a href="pages/features.html" class="btn-third">Les fonctionnalités</a>
+        <a href="pages/solutions.html" class="btn-third">Comment nous vous aidons</a>
+    </div>
+    <div class="gotop">
+        <a href="pages/pricing.html" class="btn-secondary">Commencer?</a>
+    </div>
+    
+  </section>
+     
   <!-- Bouton de téléchargement fixe, visible sur tous les écrans -->
   <a href="#" class="download-btn">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>

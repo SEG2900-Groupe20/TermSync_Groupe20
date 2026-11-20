@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablette 3 : mes cours</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .main { padding: 22px 24px; gap: 14px; }
+    .grille { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
+    .cours { border-top: 6px solid; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; }
+    .cours b { font-size: 18px; font-weight: 800; }
+    .cours > small { font-size: 13px; color: var(--doux); }
+    .cours .prochain { margin-top: auto; border-radius: 10px; padding: 8px 10px; font-size: 12px; font-weight: 700; }
+    .cours .prochain span { display: block; font-weight: 500; opacity: .85; }
+    .ajouter { border: 2px dashed #d6d4dd; border-radius: 16px; display: flex; flex-direction: column;
+               align-items: center; justify-content: center; gap: 8px; color: var(--doux); font-weight: 700; font-size: 14px; }
+    .ajouter i { width: 40px; height: 40px; border-radius: 50%; background: var(--rouge-clair); color: var(--rouge);
+                 display: grid; place-items: center; font-style: normal; font-size: 24px; }
+  </style>
+</head>
+<body>
+  <div class="ecran-tab">
+    <aside class="rail">
+      <img src="../../assets/logo/favicon.png" alt="">
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div>
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div><h1>Mes cours</h1><p>Automne 2026 · 5 cours · 24 évaluations</p></div>
+        <span class="avatar">L</span>
+      </div>
+
+      <div class="grille">
+        <div class="carte cours" style="border-top-color: var(--mat);"><b>MAT1341</b><small>Algèbre linéaire</small>
+          <div class="prochain" style="background: var(--mat-c); color: var(--mat);">Projet · 25 %<span>lundi 30 nov.</span></div></div>
+        <div class="carte cours" style="border-top-color: var(--iti);"><b>ITI1121</b><small>Programmation II</small>
+          <div class="prochain" style="background: var(--iti-c); color: var(--iti);">Devoir 3 · 15 %<span>jeudi 12 nov.</span></div></div>
+        <div class="carte cours" style="border-top-color: var(--seg);"><b>SEG2105</b><small>Génie logiciel</small>
+          <div class="prochain" style="background: var(--seg-c); color: var(--seg);">Labo 4 · 4 %<span>vendredi 13 nov.</span></div></div>
+        <div class="carte cours" style="border-top-color: var(--csi);"><b>CSI2110</b><small>Structures de données</small>
+          <div class="prochain" style="background: var(--csi-c); color: var(--csi);">Mi-session · 30 %<span>mardi 17 nov.</span></div></div>
+        <div class="carte cours" style="border-top-color: var(--phi);"><b>PHI1101</b><small>Raisonnement et pensée critique</small>
+          <div class="prochain" style="background: var(--phi-c); color: var(--phi);">Essai · 20 %<span>jeudi 19 nov.</span></div></div>
+        <div class="ajouter"><i>+</i>Ajouter un plan de cours</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

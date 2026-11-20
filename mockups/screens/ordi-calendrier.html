@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordinateur 2 : calendrier du mois</title>
+  <link rel="stylesheet" href="screens.css">
+  <style>
+    .main { gap: 12px; padding: 20px 24px; }
+    .mois { display: flex; align-items: center; gap: 10px; }
+    .fleche { width: 32px; height: 32px; border: 1px solid var(--bord); border-radius: 10px;
+              display: grid; place-items: center; background: var(--blanc); color: var(--doux); }
+    .bascule { display: flex; background: var(--bord); border-radius: 10px; padding: 3px; font-size: 13px; font-weight: 700; }
+    .bascule span { padding: 6px 12px; border-radius: 8px; color: var(--doux); }
+    .bascule span.actif { background: var(--blanc); color: var(--texte); }
+    .legende { display: flex; gap: 14px; font-size: 12px; font-weight: 600; color: var(--doux); }
+    .legende i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+    .grille { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr);
+              grid-template-rows: auto repeat(6, 1fr); gap: 4px; min-height: 0; }
+    .grille .jsem { font-size: 11px; font-weight: 700; color: var(--doux); text-transform: uppercase; padding: 0 6px 2px; }
+    .case { background: var(--blanc); border: 1px solid var(--bord); border-radius: 8px;
+            padding: 4px 5px; display: flex; flex-direction: column; gap: 3px; min-height: 0; overflow: hidden; }
+    .case > span { font-size: 12px; font-weight: 700; }
+    .case.hors { background: transparent; }
+    .case.hors > span { color: #b8b6c2; }
+    .case.auj > span { background: var(--rouge); color: #fff; border-radius: 999px; width: 22px; height: 22px;
+                       display: grid; place-items: center; }
+    .ev { font-size: 10px; font-weight: 700; border-radius: 5px; padding: 2px 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ev.exam { color: #fff !important; }
+    .ev.passe { opacity: .45; }
+  </style>
+</head>
+<body>
+  <div class="ecran-ordi">
+    <aside class="side">
+      <img class="logo" src="../../assets/logo/logo_termsync_recadre.png" alt="">
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Tableau de bord</div>
+      <div class="nav actif"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendrier</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Importer</div>
+      <div class="nav"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/></svg>Mes cours</div>
+      <div class="bas"><span class="avatar">L</span><span><b>Léa M.</b>Automne 2026</span></div>
+    </aside>
+
+    <main class="main">
+      <div class="entete">
+        <div class="mois">
+          <span class="fleche">‹</span><span class="fleche">›</span>
+          <h1>Novembre 2026</h1>
+        </div>
+        <div class="bascule"><span class="actif">Mois</span><span>Semaine</span></div>
+      </div>
+      <div class="legende">
+        <span><i style="background: var(--mat);"></i>MAT1341</span>
+        <span><i style="background: var(--iti);"></i>ITI1121</span>
+        <span><i style="background: var(--seg);"></i>SEG2105</span>
+        <span><i style="background: var(--csi);"></i>CSI2110</span>
+        <span><i style="background: var(--phi);"></i>PHI1101</span>
+      </div>
+      <div class="grille" id="grille"></div>
+    </main>
+  </div>
+
+  <script>
+    // Construit la grille : du lundi 26 octobre au dimanche 6 décembre 2026
+    const evenements = {
+      '10-29': [['Mi-session', 'mat', true]],
+      '11-9':  [['Quiz 2', 'mat']],
+      '11-12': [['Devoir 3', 'iti']],
+      '11-13': [['Labo 4', 'seg']],
+      '11-17': [['Mi-session', 'csi', true]],
+      '11-19': [['Essai', 'phi']],
+      '11-24': [['Devoir 4', 'iti']],
+      '11-26': [['Projet · remise 2', 'seg'], ['Quiz 3', 'mat']],
+      '12-3':  [['Labo 5', 'seg']],
+    };
+    const grille = document.getElementById('grille');
+    ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].forEach(j => {
+      grille.insertAdjacentHTML('beforeend', `<div class="jsem">${j}</div>`);
+    });
+    const date = new Date(2026, 9, 26);
+    for (let i = 0; i < 42; i++) {
+      const m = date.getMonth() + 1, d = date.getDate();
+      const classes = ['case'];
+      if (m !== 11) classes.push('hors');
+      if (m === 11 && d === 10) classes.push('auj');
+      const passe = date < new Date(2026, 10, 10);
+      const evs = (evenements[`${m}-${d}`] || []).map(([t, c, exam]) =>
+        `<div class="ev ${exam ? 'exam' : ''} ${passe ? 'passe' : ''}" style="background: var(--${c}${exam ? '' : '-c'}); color: var(--${c});">${t}</div>`
+      ).join('');
+      grille.insertAdjacentHTML('beforeend', `<div class="${classes.join(' ')}"><span>${d}</span>${evs}</div>`);
+      date.setDate(d + 1);
+    }
+  </script>
+</body>
+</html>
