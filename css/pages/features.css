@@ -1,110 +1,123 @@
-
-* {
+/* Page Features de TermSync */
+#main:has(> .feature) {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-}
-
-/* MAIN */
-
-main {
-  padding: 20px;
   max-width: 1200px;
-  margin: auto;
+  margin-inline: auto;
+  padding: 20px;
 }
 
-/* FEATURES */
-
-.feature {
+#main > .feature {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: 25px;
-
-  padding: 35px;
   margin-bottom: 40px;
-
-  background: white;
+  padding: 25px;
+  background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 15px;
 }
 
-/* SCREENSHOTS */
-
-.feature-image {
-  width: 100%;
-}
-
-.feature-image img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+.feature > .feature-image {
+  overflow: hidden;
   border-radius: 12px;
 }
 
-/* DESCRIPTION */
+.feature > .feature-image img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
-.feature-description {
+.feature > .feature-description {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 15px;
+  text-align: center;
 }
 
-.feature-symbol {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 110px;
-  height: 110px;
+.feature .feature-symbol {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
-
-  background: #53a4f7;
+  background: #af4949;
   color: white;
-  font-weight: bold;
+  font: 500 2.5rem/1 Georgia, serif;
 }
 
-.feature-description h2 {
-  color: #991b1b;
+.feature .feature-description h2 {
   margin: 0;
+  color: #991b1b;
+  text-wrap: balance;
 }
 
-.feature-description p {
+.feature .feature-description p {
+  margin: 0;
   color: #555;
   line-height: 1.6;
 }
 
-/* DIFFERENT IMAGE POSITIONS */
+/* Une entrée courte au chargement, décalée d’une carte à l’autre. 
+@keyframes termsync-feature-entree {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}*/
 
-#feature1 .feature-image:first-child {
-  background: #fb923c;
+@media (prefers-reduced-motion: no-preference) {
+  #main > .feature {
+    animation: termsync-feature-entree 450ms ease-out backwards;
+  }
+
+  #feature2.feature { animation-delay: 80ms; }
+  #feature3.feature { animation-delay: 160ms; }
 }
 
-#feature2 .feature-image:first-child {
-  background: #ec65ae;
+/* Le retour visuel reste discret sur une carte de lecture. */
+@media (hover: hover) and (pointer: fine) {
+  #main > .feature:hover {
+    border-color: #b47c7c;
+    box-shadow: 0 8px 24px rgba(155, 38, 38, 0.08);
+  }
 }
 
-#feature3 .feature-image:last-child {
-  background: #ef4444;
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #main > .feature {
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+
+  .feature > .feature-image img {
+    transition: transform 300ms ease-out;
+  }
+
+  .feature > .feature-image:hover img {
+    transform: scale(1.025);
+  }
+
+  .feature .feature-symbol {
+    transition: transform 300ms ease-out;
+  }
+  .feature .feature-symbol:hover{
+    transform: scale(1.025);
+  }
 }
 
-/* MOBILE */
-
-@media screen and (max-width: 768px) {
-
-  .feature {
+@media (max-width: 768px) {
+  #main > .feature {
     grid-template-columns: 1fr;
     padding: 20px;
   }
 
-  .feature-image img {
+  .feature > .feature-image img {
     height: auto;
   }
-
 }

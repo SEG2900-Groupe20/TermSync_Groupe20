@@ -41,7 +41,7 @@
 
     const image = document.createElement('img');
     image.className = 'menu-logo-image';
-    image.src = adresse('assets/logo/logo_termsync_recadre.png');
+    image.src = adresse('assets/logo/Official_logo.png');
     image.alt = 'TermSync';
 
     logo.appendChild(image);
