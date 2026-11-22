@@ -1,71 +1,26 @@
 // Code propre à la page d'accueil
 
-// Diaporama (slides) dans chaque écran : ordinateur, téléphone, tablette.
-// JavaScript natif, sans bibliothèque.
-
+// Les captures de chaque écran (ordinateur, téléphone, tablette) défilent toutes seules
+// en fondu, sans boutons ni points. JavaScript natif, sans bibliothèque.
 document.addEventListener('DOMContentLoaded', () => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  document.querySelectorAll('.slides').forEach((slider, sliderIndex) => {
-    const slides = Array.from(slider.querySelectorAll('.slide'));
-    if (slides.length < 2) return;
+  document.querySelectorAll('.screen[data-interval]').forEach((screen, n) => {
+    const images = Array.from(screen.querySelectorAll('.slide-img'));
+    if (images.length < 2) return;
 
-    const screen = slider.closest('.screen');
-    const device = slider.closest('.laptop, .phone, .tablet');
-    const indicatorsBox = screen.querySelector('.indicators');
-    const interval = Number(slider.dataset.interval) || 4000;
-
-    let current = slides.findIndex((s) => s.classList.contains('is-active'));
-    if (current < 0) current = 0;
+    const interval = Number(screen.dataset.interval) || 4000;
+    let current = 0;
     let timer = null;
 
-    // Crée un point cliquable par slide
-    const indicators = slides.map((_, i) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'indicator';
-      button.setAttribute('aria-label', `Afficher la slide ${i + 1}`);
-      button.addEventListener('click', () => {
-        goTo(i);
-        restart();
-      });
-      if (indicatorsBox) indicatorsBox.appendChild(button);
-      return button;
-    });
-
-    // Affiche la slide demandée
-    function goTo(index) {
-      const next = (index + slides.length) % slides.length;
-      if (next === current) {
-        updateIndicators();
-        return;
-      }
-
-      const previous = slides[current];
-      previous.classList.remove('is-active');
-      previous.classList.add('is-leaving');
-      setTimeout(() => previous.classList.remove('is-leaving'), 500);
-
-      slides[next].classList.add('is-active');
-      current = next;
-      updateIndicators();
-    }
-
-    function updateIndicators() {
-      indicators.forEach((button, i) => {
-        const active = i === current;
-        button.classList.toggle('is-active', active);
-        if (active) {
-          button.setAttribute('aria-current', 'true');
-        } else {
-          button.removeAttribute('aria-current');
-        }
-      });
+    function next() {
+      images[current].classList.remove('is-active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('is-active');
     }
 
     function start() {
-      if (reduceMotion || timer) return;
-      timer = setInterval(() => goTo(current + 1), interval);
+      if (!timer) timer = setInterval(next, interval);
     }
 
     function stop() {
@@ -73,42 +28,102 @@ document.addEventListener('DOMContentLoaded', () => {
       timer = null;
     }
 
-    function restart() {
-      stop();
-      start();
-    }
-
-    // Pause au survol de l'appareil
-    if (device) {
-      device.addEventListener('mouseenter', stop);
-      device.addEventListener('mouseleave', start);
-    }
-
     // Pause quand l'onglet n'est pas visible
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stop();
-      else start();
-    });
-
-    updateIndicators();
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
 
     // Décale le départ de chaque écran pour qu'ils ne changent pas tous en même temps
-    setTimeout(start, sliderIndex * 800);
+    setTimeout(start, n * 800);
   });
 });
 
 const section = document.querySelector('.termsync');
-const branches = section.querySelectorAll('.branch');
+const sticky = section.querySelector('.termsync-sticky');
+const hub = section.querySelector('.termsync-hub');
+const branches = Array.from(section.querySelectorAll('.branch'));
 
-window.addEventListener('scroll', () => {
-  if (window.innerWidth <= 768) {               // mobile : tout visible
+// ----- Courbes du logo vers chaque image -----
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const liens = document.createElementNS(SVG_NS, 'svg');
+liens.setAttribute('class', 'termsync-links');
+liens.setAttribute('aria-hidden', 'true');
+sticky.prepend(liens);
+
+// Un groupe (courbe + point d'arrivée) par branche, dans le même ordre
+const groupes = branches.map(() => {
+  const g = document.createElementNS(SVG_NS, 'g');
+  const chemin = document.createElementNS(SVG_NS, 'path');
+  const point = document.createElementNS(SVG_NS, 'circle');
+  point.setAttribute('r', '4.5');
+  g.append(chemin, point);
+  liens.append(g);
+  return { g, chemin, point };
+});
+
+function dessinerLiens() {
+  const base = sticky.getBoundingClientRect();
+  // Position d'un élément dans la zone, sans le léger décalage d'apparition (translateY)
+  const boite = (el, decalage) => {
+    const r = el.getBoundingClientRect();
+    return { gauche: r.left - base.left, droite: r.right - base.left,
+             haut: r.top - base.top - decalage, bas: r.bottom - base.top - decalage,
+             cx: (r.left + r.right) / 2 - base.left, cy: (r.top + r.bottom) / 2 - base.top - decalage };
+  };
+  const h = boite(hub, 0);
+  const marge = 8;
+
+  branches.forEach((branche, i) => {
+    const image = branche.querySelector('img');
+    if (!image) return;
+    const visible = branche.classList.contains('is-visible');
+    const m = boite(image, visible ? 0 : 20);
+    let x1, y1, x2, y2, d;
+
+    if (branche.classList.contains('branch-top') || branche.classList.contains('branch-bottom')) {
+      const haut = branche.classList.contains('branch-top');
+      x1 = h.cx; y1 = haut ? h.haut - marge : h.bas + marge;
+      x2 = m.cx; y2 = haut ? m.bas + marge : m.haut - marge;
+      const milieu = (y1 + y2) / 2, ecart = haut ? 38 : -38;
+      d = `M${x1},${y1} C${x1 + ecart},${milieu} ${x2 - ecart},${milieu} ${x2},${y2}`;
+    } else {
+      const gauche = branche.classList.contains('branch-left');
+      x1 = gauche ? h.gauche - marge : h.droite + marge; y1 = h.cy;
+      x2 = gauche ? m.droite + marge : m.gauche - marge; y2 = m.cy;
+      const milieu = (x1 + x2) / 2, ecart = gauche ? 42 : -42;
+      d = `M${x1},${y1} C${milieu},${y1 + ecart} ${milieu},${y2 - ecart} ${x2},${y2}`;
+    }
+
+    const { chemin, point } = groupes[i];
+    chemin.setAttribute('d', d);
+    point.setAttribute('cx', x2);
+    point.setAttribute('cy', y2);
+    // La courbe se dessine petit à petit quand la branche apparaît
+    const longueur = chemin.getTotalLength();
+    chemin.style.strokeDasharray = longueur;
+    chemin.style.strokeDashoffset = visible ? 0 : longueur;
+  });
+}
+
+function mettreAJour() {
+  if (window.innerWidth <= 768) {               // mobile : tout visible, sans courbes
     branches.forEach(b => b.classList.add('is-visible'));
     return;
   }
   const rect = section.getBoundingClientRect();
   const progress = -rect.top / (section.offsetHeight - innerHeight); // 0 → 1
-  // Reste entre la première et la dernière branche : sinon, au début et à la fin
-  // de la section, aucune branche n'est affichée et il reste un grand vide.
+  // Au moins la première branche est toujours affichée : pas de grand vide au début.
   const active = Math.min(branches.length - 1, Math.max(0, Math.floor(progress * branches.length)));
-  branches.forEach((b, i) => b.classList.toggle('is-visible', i === active));
-});
+  // Les branches s'ajoutent une à une et restent affichées : la carte se remplit au fil du scroll
+  branches.forEach((b, i) => {
+    const visible = i <= active;
+    b.classList.toggle('is-visible', visible);
+    groupes[i].g.classList.toggle('is-visible', visible);
+    groupes[i].chemin.style.strokeDashoffset = visible ? 0 : groupes[i].chemin.style.strokeDasharray;
+  });
+}
+
+window.addEventListener('scroll', mettreAJour);
+window.addEventListener('resize', () => { dessinerLiens(); mettreAJour(); });
+window.addEventListener('load', () => { dessinerLiens(); mettreAJour(); });
+section.querySelectorAll('img').forEach(img => img.addEventListener('load', dessinerLiens));
+dessinerLiens();
+mettreAJour();

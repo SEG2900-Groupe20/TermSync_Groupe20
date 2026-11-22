@@ -16,7 +16,7 @@ body {
 
 .page-title {
   font-size: 32px;
-  color: #991b1b;
+  color: #a41c1c;
   margin-bottom: 30px;
 }
 
@@ -57,7 +57,7 @@ body {
   background: #ffffff;
   color: #111019;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.05);
+  box-shadow: 0 4px 15px rgba(164, 28, 28, 0.05);
   flex-shrink: 0;
 }
 
@@ -69,13 +69,13 @@ body {
 .card.center {
   opacity: 1;
   transform: scale(1.08);
-  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+  box-shadow: 0 15px 35px rgba(164, 28, 28, 0.2);
   z-index: 2;
 }
 
 .card h3 {
   margin: 0 0 15px 0;
-  color: #991b1b;
+  color: #a41c1c;
   font-size: 24px;
 }
 
@@ -95,7 +95,7 @@ body {
   border: none;
   font-weight: bold;
   cursor: pointer;
-  background: #dc2626;
+  background: #a41c1c;
   color: white;
 }
 
@@ -107,7 +107,7 @@ body {
 }
 
 .card.center .btn:hover {
-  background: #b91c1c;
+  background: #861616;
 }
 
 .indicators {
@@ -119,12 +119,12 @@ body {
 .dot {
   width: 20px;
   height: 6px;
-  background: #fecaca;
+  background: #e9bcbc;
   border-radius: 3px;
 }
 
 .dot.active {
-  background: #dc2626;
+  background: #a41c1c;
   width: 32px;
 }
 
@@ -139,9 +139,9 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid #dc2626;
+  border: 2px solid #a41c1c;
   background: white;
-  color: #dc2626;
+  color: #a41c1c;
   font-size: 20px;
   display: flex;
   align-items: center;

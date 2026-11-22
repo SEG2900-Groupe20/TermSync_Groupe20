@@ -7,158 +7,227 @@
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/logo/favicon.png">
   <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
   <title>Solutions | TermSync</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages/solutions.css">
   <script src="../js/utils/navbar.js" defer></script>
+  <script src="../js/utils/footer.js" defer></script>
 </head>
 <body class="page-solutions">
   <div id="navbar"></div>
 
   <main>
-    <!-- Partie 1 : présentation + de plan de cours à calendrier -->
+
+    <!-- Partie 1 : le problème de départ, de plan de cours à calendrier -->
     <section class="hero-solutions">
       <div class="conteneur">
         <div class="hero-texte">
-          <span class="badge">Pour les étudiants</span>
-          <h1 class="page-title">Vos plans de cours deviennent <span class="accent">un calendrier.</span></h1>
+          <h1>Votre plan de cours dit quand.<br><span class="accent">TermSync dit quoi réviser.</span></h1>
           <p>
-            Importez un plan de cours en PDF, en Word ou même en photo.
-            TermSync repère vos examens, vos devoirs et leur pondération,
-            puis les place dans un calendrier prêt à consulter.
+            TermSync lit vos plans de cours, repère chaque évaluation et vous dit quand commencer
+            à réviser, selon vos notes dans chaque matière. Il vous propose aussi des exercices
+            sur les chapitres annoncés pour chaque examen.
           </p>
           <div class="hero-actions">
-            <a href="pricing.html" class="bouton">Commencer</a>
-            <a href="#comment-ca-marche" class="lien-secondaire">Voir comment ça marche</a>
+            <a href="pricing.html" class="btn-primary">Commencer</a>
+            <a href="#comment-ca-marche" class="btn-secondary">Voir comment ça marche</a>
           </div>
         </div>
 
-        <div class="hero-visuel" aria-hidden="true">
-          <div class="carte-doc">
-            <div class="carte-entete">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-              <span>plan-de-cours.pdf</span>
+        <!-- Scène : des fichiers en vrac → TermSync → un calendrier -->
+        <div class="scene" aria-hidden="true">
+          <div class="scene-fichiers">
+            <div class="fichier fichier-1">
+              <span class="fichier-type">PDF</span>
+              <span class="fichier-nom">plan-MAT1341.pdf</span>
             </div>
-            <div class="ligne ligne-longue"></div>
-            <div class="ligne ligne-moyenne"></div>
-            <div class="ligne-info"><span>Devoir 1</span><strong>10 %</strong></div>
-            <div class="ligne ligne-longue"></div>
-            <div class="ligne-info"><span>Examen de mi-session</span><strong>30 %</strong></div>
-            <div class="ligne ligne-courte"></div>
-            <div class="ligne-info"><span>Examen final</span><strong>40 %</strong></div>
+            <div class="fichier fichier-2">
+              <span class="fichier-type fichier-type-word">DOC</span>
+              <span class="fichier-nom">plan-ITI1121.docx</span>
+            </div>
+            <div class="fichier fichier-3">
+              <span class="fichier-type fichier-type-photo">JPG</span>
+              <span class="fichier-nom">photo-SEG2105.jpg</span>
+            </div>
           </div>
 
+          <svg class="scene-liens scene-liens-entree" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,17 C50,17 50,50 100,50"/>
+            <path d="M0,50 C50,50 50,50 100,50"/>
+            <path d="M0,83 C50,83 50,50 100,50"/>
+          </svg>
+
           <div class="fleche-sync">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-15-6.7L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/><path d="M16 16h5v5"/></svg>
+            <img src="../assets/logo/favicon.png" alt="" width="44" height="44">
           </div>
+
+          <svg class="scene-liens scene-liens-sortie" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 C40,15 60,85 100,50"/>
+          </svg>
 
           <div class="carte-calendrier">
             <div class="carte-entete">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <span>Votre calendrier</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span>Votre plan de réussite</span>
             </div>
-            <div class="calendrier" data-jours="9,17,28" data-devoirs="5,12,24"></div>
+            <div class="calendrier" data-jours="9,17,28" data-devoirs="5,12,24" data-revisions="3,4,6,13,14,15,22,23,26,27"></div>
             <ul class="legende">
               <li><span class="puce puce-examen"></span>Examen</li>
               <li><span class="puce puce-devoir"></span>Devoir</li>
+              <li><span class="puce puce-revision"></span>Révision suggérée</li>
+            </ul>
+            <ul class="suggestions">
+              <li>
+                <strong>Réviser MAT1341 dès le 3</strong>
+                <span>Votre moyenne y est de 62 % : mieux vaut commencer plus tôt.</span>
+              </li>
+              <li>
+                <strong>Exercices : chapitres 3 à 5</strong>
+                <span>Ceux que votre prof annonce pour l'examen de mi-session.</span>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Partie 2 : les étapes -->
-    <section class="section section-grise" id="comment-ca-marche">
-      <div class="conteneur etapes-zone">
-        <div class="boite-texte">
+    <!-- Partie 2 : comment ça marche (les 4 étapes) -->
+    <section class="section" id="comment-ca-marche">
+      <div class="conteneur">
+        <div class="titre-section">
           <h2>Comment ça marche ?</h2>
-          <p>Quatre étapes simples, sans rien recopier à la main.</p>
-          <p id="detail-etape" class="detail-etape" aria-live="polite"></p>
+          <p>De votre plan de cours à votre plan de révision, en quatre étapes.</p>
         </div>
 
         <ol class="etapes">
-          <li class="etape actif" data-detail="Déposez un PDF, un document Word ou une photo de votre plan de cours. Un fichier par cours suffit.">
+          <li class="etape reveal">
             <span class="cercle">1</span>
-            <p>Importez votre plan de cours</p>
+            <h3>Déposez vos plans de cours</h3>
+            <p>PDF, Word ou photo : un fichier par cours suffit.</p>
           </li>
-          <li class="etape" data-detail="TermSync lit le document et repère les dates d'examen, les échéances de devoirs et ce que vaut chaque évaluation.">
+          <li class="etape reveal">
             <span class="cercle">2</span>
-            <p>TermSync trouve les dates et les pondérations</p>
+            <h3>TermSync lit tout</h3>
+            <p>Il repère les examens, les devoirs, leur pondération et les chapitres annoncés par vos profs.</p>
           </li>
-          <li class="etape" data-detail="Les informations trouvées s'affichent clairement. Vous corrigez une date si nécessaire, en quelques secondes.">
+          <li class="etape reveal">
             <span class="cercle">3</span>
-            <p>Vous vérifiez en un coup d'œil</p>
+            <h3>Il tient compte de vos notes</h3>
+            <p>Vos résultats dans chaque matière lui montrent où vous avez besoin de plus de temps.</p>
           </li>
-          <li class="etape" data-detail="Tout est ajouté à votre calendrier de session. Vous voyez d'un coup ce qui s'en vient, cours après cours.">
+          <li class="etape reveal">
             <span class="cercle">4</span>
-            <p>Votre calendrier est prêt</p>
+            <h3>Vous suivez votre plan</h3>
+            <p>Un calendrier avec vos échéances, des périodes de révision suggérées et des exercices ciblés.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- Partie 3 : les solutions -->
-    <section class="section conteneur solutions-zone">
-      <div>
-        <h2>Ce que TermSync fait pour vous</h2>
-        <div class="grille-solutions">
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-            <h3>Dates d'examen</h3>
-            <p>Tous vos examens au même endroit.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
-            <h3>Devoirs</h3>
-            <p>Chaque échéance est ajoutée au calendrier.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
-            <h3>Pondérations</h3>
-            <p>Voyez combien vaut chaque évaluation.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-            <h3>PDF, Word, photo</h3>
-            <p>Importez le format que vous avez.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
-            <h3>Plusieurs cours</h3>
-            <p>Toute votre session dans un seul calendrier.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
-            <h3>Rien à recopier</h3>
-            <p>Fini la saisie manuelle des dates.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
-            <h3>Moins de stress</h3>
-            <p>Vous savez toujours ce qui arrive.</p>
-          </article>
-          <article class="solution">
-            <div class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-            <h3>Aucun oubli</h3>
-            <p>Plus d'échéance manquée.</p>
-          </article>
+    <!-- Partie 3 : les problèmes d'étudiants et la réponse de TermSync -->
+    <section class="section" id="problemes">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Des problèmes d'étudiants, des solutions concrètes</h2>
+          <p>
+            Chaque solution répond à une situation que vivent tous les étudiants.
+            Le détail de chaque outil se trouve dans <a href="features.html">les fonctionnalités</a>.
+          </p>
         </div>
-      </div>
 
-      <div class="tablette" aria-hidden="true">
-        <div class="ecran ecran-tablette">
-          <div class="trait trait-titre"></div>
-          <div class="calendrier" data-jours="4,11,17,25,30"></div>
-          <span class="etiquette">Aperçu du calendrier</span>
+        <div class="grille-solutions">
+          <article class="solution reveal">
+            <span class="solution-probleme">« Mes plans de cours sont partout. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>Tout au même endroit</h3>
+            <p>PDF, Word ou photo : importez ce que vous avez, TermSync range tout pour vous.</p>
+          </article>
+          <article class="solution reveal">
+            <span class="solution-probleme">« J'ai oublié une date. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+            <h3>Aucun oubli</h3>
+            <p>Chaque examen et chaque remise arrive dans votre calendrier, avec un rappel avant l'échéance.</p>
+          </article>
+          <article class="solution reveal">
+            <span class="solution-probleme">« Je commence toujours à réviser trop tard. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3>Savoir quand commencer</h3>
+            <p>TermSync suggère le début de vos révisions selon la date de l'examen et vos notes dans la matière.</p>
+          </article>
+          <article class="solution reveal">
+            <span class="solution-probleme">« Je ne sais pas quoi réviser. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <h3>Des exercices ciblés</h3>
+            <p>Il vous propose des exercices sur les chapitres de l'examen, ceux que votre prof annonce en général.</p>
+          </article>
+          <article class="solution reveal">
+            <span class="solution-probleme">« J'ai trop de cours à suivre. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <h3>Une seule vue</h3>
+            <p>Toute votre session, cours après cours, dans un seul calendrier.</p>
+          </article>
+          <article class="solution reveal">
+            <span class="solution-probleme">« Les semaines chargées me surprennent. »</span>
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+            <h3>Voir venir les périodes chargées</h3>
+            <p>TermSync repère les semaines où les échéances s'accumulent, avant qu'elles n'arrivent.</p>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- Partie 4 : avant / après -->
+    <section class="section" id="avant-apres">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Avant, après TermSync</h2>
+          <p>La même session, vécue autrement.</p>
+        </div>
+
+        <div class="comparaison">
+          <article class="cas cas-avant reveal">
+            <h3>Sans TermSync</h3>
+            <ul>
+              <li>Des plans de cours éparpillés dans vos dossiers</li>
+              <li>Des dates recopiées à la main, parfois oubliées</li>
+              <li>Des révisions qui commencent la veille de l'examen</li>
+              <li>Du stress avant chaque examen</li>
+            </ul>
+          </article>
+
+          <article class="cas cas-apres reveal">
+            <h3>Avec TermSync</h3>
+            <ul>
+              <li>Tous vos plans de cours au même endroit</li>
+              <li>Chaque date repérée, un rappel avant chaque échéance</li>
+              <li>Des révisions planifiées selon vos notes, avec des exercices ciblés</li>
+              <li>Une session qu'on voit venir, sereinement</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partie 5 : appel à l'action -->
+    <section class="conteneur section-cta">
+      <div class="cta-sombre">
+        <div class="cta-sombre-texte">
+          <h2>Arrivez à chaque examen préparé.</h2>
+          <p>Importez votre premier plan de cours : TermSync prépare votre plan de révision.</p>
+        </div>
+        <div class="cta-sombre-actions">
+          <a href="pricing.html" class="btn-light">Commencer</a>
+          <a href="features.html" class="btn-contour">Voir les fonctionnalités</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 TermSync</p>
-  </footer>
+  <div id="footer"></div>
 
   <script src="../js/main.js"></script>
   <script src="../js/pages/solutions.js"></script>

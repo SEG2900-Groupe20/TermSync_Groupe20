@@ -5,9 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --rouge: #dc2626;
-  --rouge-fonce: #b91c1c;
-  --rouge-clair: #fee2e2;
+  --rouge: #a41c1c;
+  --rouge-fonce: #861616;
+  --rouge-clair: #f8e3e3;
   --texte: #111019;
   --doux: #6b6878;
   --bord: #ececf0;
@@ -74,7 +74,7 @@ svg.ic { width: 22px; height: 22px; fill: none; stroke: currentColor;
             font-size: 12px; font-weight: 700; }
 .bouton { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
           background: var(--rouge); color: #fff; font-weight: 700; font-size: 15px;
-          padding: 12px 20px; border-radius: 12px; box-shadow: 0 6px 16px rgba(220, 38, 38, .25); }
+          padding: 12px 20px; border-radius: 12px; box-shadow: 0 6px 16px rgba(164, 28, 28, .25); }
 .barre { height: 10px; background: var(--bord); border-radius: 999px; overflow: hidden; }
 .barre span { display: block; height: 100%; background: var(--rouge); border-radius: 999px; }
 

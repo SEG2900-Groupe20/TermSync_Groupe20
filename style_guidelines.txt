@@ -18,11 +18,11 @@ STYLE GUIDELINES - PROJET DE GROUPE SEG
 Couleur              Code        Utilisation
 -------------------  ----------  -----------------------------------------
 Fond de page         #fdf2f2     background du body
-Rouge très clair     #fee2e2     cartes, boutons du menu
-Rouge clair          #fecaca     hover du menu, points inactifs
-Rouge principal      #dc2626     boutons, bordures, élément actif
-Rouge foncé (hover)  #b91c1c     hover des boutons principaux
-Rouge texte          #991b1b     titres et textes
+Rouge très clair     #f8e3e3     cartes, boutons du menu
+Rouge clair          #e9bcbc     hover du menu, points inactifs
+Rouge principal      #a41c1c     boutons, bordures, élément actif
+Rouge foncé (hover)  #861616     hover des boutons principaux
+Rouge texte          #a41c1c     titres et textes
 Blanc                #ffffff     fond des boutons de navigation, texte bouton
 Menu (fond)          rgba(255, 255, 255, 0.95)   barre de menu
 
@@ -33,7 +33,7 @@ Menu (fond)          rgba(255, 255, 255, 0.95)   barre de menu
 --------------------------------------------------
 Élément              Taille   Détails
 -------------------  -------  ---------------------------
-Titre de page        32px     couleur #991b1b, marge basse 30px
+Titre de page        32px     couleur #a41c1c, marge basse 30px
 Titre de carte (h3)  24px     marge basse 15px
 Texte de carte       14px     line-height 1.6, opacité 0.9, aligné à gauche
 Menu                 14px     centré
@@ -52,8 +52,8 @@ Arrondis (border-radius) :
 
 Ombres (box-shadow) :
 - Menu            : 0 2px 10px rgba(0, 0, 0, 0.05)
-- Carte normale   : 0 4px 15px rgba(220, 38, 38, 0.05)
-- Carte active    : 0 15px 35px rgba(220, 38, 38, 0.2)
+- Carte normale   : 0 4px 15px rgba(164, 28, 28, 0.05)
+- Carte active    : 0 15px 35px rgba(164, 28, 28, 0.2)
 
 Espacements courants : 10px, 12px, 15px, 20px, 25px, 30px, 40px
 (rester sur ces valeurs pour garder un rythme visuel cohérent)
@@ -67,19 +67,19 @@ Espacements courants : 10px, 12px, 15px, 20px, 25px, 30px, 40px
 - Position fixe en haut (position: fixed; top: 0; left: 0; width: 100%)
 - Fond blanc semi-transparent, ombre légère, z-index: 1000
 - Disposition en flex, gap 12px, padding 15px 20px
-- .menu-item : flex: 1, padding 10px 4px, fond #fee2e2, texte #991b1b,
+- .menu-item : flex: 1, padding 10px 4px, fond #f8e3e3, texte #a41c1c,
   pas de soulignement, texte centré, forme pilule (999px)
-- Hover : fond #fecaca + léger déplacement vers le haut
+- Hover : fond #e9bcbc + léger déplacement vers le haut
   (transform: translateY(-2px)), transition 0.25s
 - IMPORTANT : le body doit avoir padding-top: 100px pour que le contenu
   ne passe pas sous le menu.
 
 5.2 TITRE DE PAGE  (.page-title)
-- 32px, couleur #991b1b, margin-bottom 30px
+- 32px, couleur #a41c1c, margin-bottom 30px
 
 5.3 CARTES  (.card)
 - Largeur 280px, hauteur minimum 320px
-- Fond #fee2e2, texte #991b1b, border-radius 24px
+- Fond #f8e3e3, texte #a41c1c, border-radius 24px
 - Padding 30px 24px, texte centré
 - Flex en colonne (contenu en haut, bouton en bas)
 - flex-shrink: 0 (la carte ne se rétrécit pas)
@@ -95,19 +95,19 @@ Espacements courants : 10px, 12px, 15px, 20px, 25px, 30px, 40px
 
 5.4 BOUTON PRINCIPAL  (.btn)
 - display block, largeur 100%, padding 12px, sans bordure
-- Fond #dc2626, texte blanc, gras, forme pilule, cursor pointer
-- Hover (sur carte active) : fond #b91c1c
+- Fond #a41c1c, texte blanc, gras, forme pilule, cursor pointer
+- Hover (sur carte active) : fond #861616
 - Sur carte inactive (.card.side) : opacité 0.4, cursor not-allowed,
   pointer-events none (non cliquable)
 
 5.5 INDICATEURS (points)  (.indicators / .dot)
-- .dot : 20px x 6px, fond #fecaca, arrondi 3px
-- .dot.active : fond #dc2626, largeur 32px
+- .dot : 20px x 6px, fond #e9bcbc, arrondi 3px
+- .dot.active : fond #a41c1c, largeur 32px
 - Conteneur en flex, gap 10px, margin-top 20px
 
 5.6 BOUTONS DE NAVIGATION  (.controls / .nav-btn)
-- Cercle de 48px x 48px, bordure 2px solid #dc2626
-- Fond blanc, flèche/texte #dc2626, taille 20px, centré en flex
+- Cercle de 48px x 48px, bordure 2px solid #a41c1c
+- Fond blanc, flèche/texte #a41c1c, taille 20px, centré en flex
 - cursor: pointer
 - .controls : flex, gap 40px, margin-top 25px, margin-bottom 40px
 
@@ -164,11 +164,11 @@ STYLE GUIDELINES - SEG GROUP PROJECT
 Color                Code        Usage
 -------------------  ----------  -----------------------------------------
 Page background      #fdf2f2     body background
-Very light red       #fee2e2     cards, menu buttons
-Light red            #fecaca     menu hover, inactive dots
-Main red             #dc2626     buttons, borders, active element
-Dark red (hover)     #b91c1c     hover on main buttons
-Text red             #991b1b     titles and text
+Very light red       #f8e3e3     cards, menu buttons
+Light red            #e9bcbc     menu hover, inactive dots
+Main red             #a41c1c     buttons, borders, active element
+Dark red (hover)     #861616     hover on main buttons
+Text red             #a41c1c     titles and text
 White                #ffffff     navigation button background, button text
 Menu (background)    rgba(255, 255, 255, 0.95)   menu bar
  
@@ -179,7 +179,7 @@ Menu (background)    rgba(255, 255, 255, 0.95)   menu bar
 --------------------------------------------------
 Element              Size       Details
 -------------------  ---------  ---------------------------
-Page title           32px       color #991b1b, bottom margin 30px
+Page title           32px       color #a41c1c, bottom margin 30px
 Card title (h3)      24px       bottom margin 15px
 Card text            14px       line-height 1.6, opacity 0.9, left-aligned
 Menu                 14px       centered
@@ -198,8 +198,8 @@ Rounded corners (border-radius):
  
 Shadows (box-shadow):
 - Menu             : 0 2px 10px rgba(0, 0, 0, 0.05)
-- Normal card      : 0 4px 15px rgba(220, 38, 38, 0.05)
-- Active card      : 0 15px 35px rgba(220, 38, 38, 0.2)
+- Normal card      : 0 4px 15px rgba(164, 28, 28, 0.05)
+- Active card      : 0 15px 35px rgba(164, 28, 28, 0.2)
  
 Common spacing values: 10px, 12px, 15px, 20px, 25px, 30px, 40px
 (stick to these values to keep a consistent visual rhythm)
@@ -213,19 +213,19 @@ Common spacing values: 10px, 12px, 15px, 20px, 25px, 30px, 40px
 - Fixed at the top (position: fixed; top: 0; left: 0; width: 100%)
 - Semi-transparent white background, light shadow, z-index: 1000
 - Flex layout, gap 12px, padding 15px 20px
-- .menu-item: flex: 1, padding 10px 4px, background #fee2e2, text #991b1b,
+- .menu-item: flex: 1, padding 10px 4px, background #f8e3e3, text #a41c1c,
   no underline, centered text, pill shape (999px)
-- Hover: background #fecaca + slight upward movement
+- Hover: background #e9bcbc + slight upward movement
   (transform: translateY(-2px)), 0.25s transition
 - IMPORTANT: the body must have padding-top: 100px so the content
   does not slide under the menu.
  
 5.2 PAGE TITLE  (.page-title)
-- 32px, color #991b1b, margin-bottom 30px
+- 32px, color #a41c1c, margin-bottom 30px
  
 5.3 CARDS  (.card)
 - Width 280px, minimum height 320px
-- Background #fee2e2, text #991b1b, border-radius 24px
+- Background #f8e3e3, text #a41c1c, border-radius 24px
 - Padding 30px 24px, centered text
 - Flex in a column (content at the top, button at the bottom)
 - flex-shrink: 0 (the card does not shrink)
@@ -241,19 +241,19 @@ Common spacing values: 10px, 12px, 15px, 20px, 25px, 30px, 40px
  
 5.4 MAIN BUTTON  (.btn)
 - display block, width 100%, padding 12px, no border
-- Background #dc2626, white text, bold, pill shape, cursor pointer
-- Hover (on active card): background #b91c1c
+- Background #a41c1c, white text, bold, pill shape, cursor pointer
+- Hover (on active card): background #861616
 - On inactive card (.card.side): opacity 0.4, cursor not-allowed,
   pointer-events none (not clickable)
  
 5.5 INDICATORS (dots)  (.indicators / .dot)
-- .dot: 20px x 6px, background #fecaca, rounded 3px
-- .dot.active: background #dc2626, width 32px
+- .dot: 20px x 6px, background #e9bcbc, rounded 3px
+- .dot.active: background #a41c1c, width 32px
 - Container is flex, gap 10px, margin-top 20px
  
 5.6 NAVIGATION BUTTONS  (.controls / .nav-btn)
-- 48px x 48px circle, border 2px solid #dc2626
-- White background, arrow/text #dc2626, size 20px, centered with flex
+- 48px x 48px circle, border 2px solid #a41c1c
+- White background, arrow/text #a41c1c, size 20px, centered with flex
 - cursor: pointer
 - .controls: flex, gap 40px, margin-top 25px, margin-bottom 40px
  

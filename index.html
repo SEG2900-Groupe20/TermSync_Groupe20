@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./css/components.css">
   <link rel="stylesheet" href="./css/pages/home.css">
   <script src="./js/utils/navbar.js" defer></script>
+  <script src="./js/utils/footer.js" defer></script>
   <script src="./js/pages/home.js" defer></script>
 </head>
 <body>
@@ -21,87 +22,56 @@
   <main class="hero">
 
     <section class="hero__text">
-      <h1>Termsync, <span class="accent">sur tous vos écrans.</span></h1>
-      <p>TermSync est une application conçue pour aider les étudiants à s’organiser en leur créant un emploi du temps accessible à partir de leurs plans de cours.</p>
-      <span class="badge">Disponible sur mobile, tablette et ordinateur</span>
-      
+      <h1>Votre trimestre, <span class="accent">synchronisé.</span></h1>
+      <ul class="hero__points">
+        <li><span class="hero__point-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span><strong>Un assistant IA</strong> dédié à votre réussite scolaire</li>
+        <li><span class="hero__point-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span><strong>Une simple photo</strong> de vos plans : il repère les dates</li>
+        <li><span class="hero__point-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><strong>Des rappels</strong> avant chaque examen et chaque remise</li>
+        <li><span class="hero__point-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></span><strong>Un suivi personnalisé</strong> qui s'adapte à vos notes</li>
+      </ul>
+
+      <div class="hero__actions">
+        <a href="pages/pricing.html" class="btn-primary">Commencer</a>
+        <a href="pages/features.html" class="btn-secondary">Voir les fonctionnalités</a>
+      </div>
+
+      <div class="platforms">
+        <span class="platforms__label">Disponible sur</span>
+        <ul class="platforms__list">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>iOS</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4483-.9993.9993-.9993c.5511 0 .9993.4483.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4483.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>Android</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>Windows</li>
+        </ul>
+      </div>
     </section>
 
     <section class="devices" aria-label="Aperçu sur téléphone, ordinateur et tablette">
 
       <!-- ===== Ordinateur ===== -->
       <div class="laptop">
-        <div class="screen laptop__screen">
-          <div class="dots"><span></span><span></span><span></span></div>
-
-          <div class="slides" data-interval="4000">
-            <!-- Captures : sources dans mockups/screens/, export avec mockups/screens/export.sh -->
-            <!-- Slide 1 : tableau de bord -->
-            <div class="slide is-active">
-              <img class="slide-img" src="assets/images/screens/ordi-tableau-de-bord.png" alt="Tableau de bord TermSync : prochaine échéance et évaluations de la semaine">
-            </div>
-            <!-- Slide 2 : calendrier du mois -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/ordi-calendrier.png" alt="Calendrier du mois avec les examens et devoirs de chaque cours">
-            </div>
-            <!-- Slide 3 : import d'un plan de cours -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/ordi-import.png" alt="Import d'un plan de cours en PDF et évaluations trouvées">
-            </div>
-          </div>
-
-          <div class="screen__footer">
-            <div class="indicators"></div>
-          </div>
+        <div class="screen laptop__screen" data-interval="4000">
+            <img class="slide-img is-active" src="assets/images/screens/ordi-tableau-de-bord-hero.png" alt="Tableau de bord TermSync : prochaine échéance et évaluations de la semaine">
+            <img class="slide-img" src="assets/images/screens/ordi-calendrier-hero.png" alt="Calendrier du mois avec les examens et devoirs de chaque cours">
+            <img class="slide-img" src="assets/images/screens/ordi-import-hero.png" alt="Import d'un plan de cours en PDF et évaluations trouvées">
         </div>
+        <div class="laptop__base"></div>
       </div>
-      <div class="laptop__base"></div>
 
       <!-- ===== Téléphone ===== -->
       <div class="phone">
-        <div class="screen phone__screen">
-          <div class="slides" data-interval="3500">
-            <!-- Slide 1 : aujourd'hui -->
-            <div class="slide is-active">
-              <img class="slide-img" src="assets/images/screens/tel-aujourdhui.png" alt="Vue Aujourd'hui : prochaine échéance et cours du jour">
-            </div>
-            <!-- Slide 2 : rappel -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/tel-rappel.png" alt="Notification de rappel d'un examen de mi-session">
-            </div>
-            <!-- Slide 3 : photo d'un plan de cours -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/tel-photo.png" alt="Photo d'un plan de cours avec les dates repérées">
-            </div>
-          </div>
-
-          <div class="screen__footer screen__footer--column">
-            <div class="indicators"></div>
-          </div>
+        <div class="screen phone__screen" data-interval="3500">
+            <img class="slide-img is-active" src="assets/images/screens/tel-aujourdhui-hero.png" alt="Vue Aujourd'hui : prochaine échéance et cours du jour">
+            <img class="slide-img" src="assets/images/screens/tel-rappel-hero.png" alt="Notification de rappel d'un examen de mi-session">
+            <img class="slide-img" src="assets/images/screens/tel-photo-hero.png" alt="Photo d'un plan de cours avec les dates repérées">
         </div>
       </div>
 
       <!-- ===== Tablette ===== -->
       <div class="tablet">
-        <div class="screen screen--light tablet__screen">
-          <div class="slides" data-interval="4500">
-            <!-- Slide 1 : vue semaine -->
-            <div class="slide is-active">
-              <img class="slide-img" src="assets/images/screens/tab-semaine.png" alt="Emploi du temps de la semaine avec les échéances">
-            </div>
-            <!-- Slide 2 : pondérations -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/tab-ponderations.png" alt="Pondération de chaque évaluation, cours par cours">
-            </div>
-            <!-- Slide 3 : mes cours -->
-            <div class="slide">
-              <img class="slide-img" src="assets/images/screens/tab-cours.png" alt="Liste des cours de la session et leur prochaine évaluation">
-            </div>
-          </div>
-
-          <div class="screen__footer">
-            <div class="indicators"></div>
-          </div>
+        <div class="screen screen--light tablet__screen" data-interval="4500">
+            <img class="slide-img is-active" src="assets/images/screens/tab-semaine-hero.png" alt="Emploi du temps de la semaine avec les échéances">
+            <img class="slide-img" src="assets/images/screens/tab-ponderations-hero.png" alt="Pondération de chaque évaluation, cours par cours">
+            <img class="slide-img" src="assets/images/screens/tab-cours-hero.png" alt="Liste des cours de la session et leur prochaine évaluation">
         </div>
       </div>
 
@@ -114,23 +84,26 @@
     <section class="termsync" id="solutions">
 
       <div class="termsync-sticky">
-        <h2 class="termsync-title">Termsync</h2>
+        <div class="termsync-hub">
+          <h2 class="sr-only">TermSync</h2>
+          <img src="assets/logo/favicon.png" alt="" width="72" height="72">
+        </div>
 
         <div class="branch branch-top">
           <p><strong>Un compagnon d'études.</strong> Du premier cours au dernier examen.</p>
-          <img src="assets/images/screens/ordi-tableau-de-bord.png" alt="Tableau de bord TermSync">
+          <img src="assets/images/screens/ordi-tableau-de-bord-mid.png" alt="Tableau de bord TermSync">
         </div>
         <div class="branch branch-left">
           <p><strong>Un repère pour ne pas se perdre.</strong> Toute la session au même endroit.</p>
-          <img src="assets/images/screens/ordi-calendrier.png" alt="Calendrier du mois">
+          <img src="assets/images/screens/ordi-calendrier-mid.png" alt="Calendrier du mois">
         </div>
         <div class="branch branch-right">
           <p><strong>Un allié contre le stress.</strong> Vous savez toujours ce qui arrive.</p>
-          <img src="assets/images/screens/tel-rappel.png" alt="Rappel d'examen sur téléphone">
+          <img src="assets/images/screens/tel-rappel-mid.png" alt="Rappel d'examen sur téléphone">
         </div>
         <div class="branch branch-bottom">
           <p><strong>Du temps gagné.</strong> Vos plans de cours font le travail.</p>
-          <img src="assets/images/screens/ordi-import.png" alt="Import d'un plan de cours">
+          <img src="assets/images/screens/ordi-import-mid.png" alt="Import d'un plan de cours">
         </div>
       </div>
   
@@ -140,23 +113,46 @@
 
   </main>
   <section class="cta">
-    <div class="esp">
-      <h1>En savoir plus sur...</h1>
-        <a href="pages/team.html" class="btn-third">Nous</a>
-        <a href="pages/features.html" class="btn-third">Les fonctionnalités</a>
-        <a href="pages/solutions.html" class="btn-third">Comment nous vous aidons</a>
+    <div class="more">
+      <h2 class="more__title">Envie d'en savoir plus ?</h2>
+      <p class="more__intro">Explorez TermSync selon ce qui vous intéresse.</p>
+
+      <div class="more__cards">
+        <a href="pages/features.html" class="more-card">
+          <span class="more-card__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <h3>Les fonctionnalités</h3>
+          <p>Import de plans de cours, calendrier, rappels : tout ce que fait TermSync.</p>
+          <svg class="more-card__fleche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="pages/solutions.html" class="more-card">
+          <span class="more-card__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span>
+          <h3>Comment nous vous aidons</h3>
+          <p>Dates oubliées, plans de cours éparpillés : les problèmes qu'on règle.</p>
+          <svg class="more-card__fleche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="pages/team.html" class="more-card">
+          <span class="more-card__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <h3>Qui sommes-nous</h3>
+          <p>Les étudiants derrière TermSync et leur histoire.</p>
+          <svg class="more-card__fleche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="gotop">
-        <a href="pages/pricing.html" class="btn-secondary">Commencer?</a>
+
+    <div class="cta-band">
+      <h2>Prêt à organiser votre session ?</h2>
+      <p>Créez votre emploi du temps à partir de vos plans de cours en quelques minutes.</p>
+      <a href="pages/pricing.html" class="btn-light">Commencer</a>
     </div>
-    
   </section>
-     
+
   <!-- Bouton de téléchargement fixe, visible sur tous les écrans -->
   <a href="#" class="download-btn">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>
-    Télécharger l'application
+    Télécharger
   </a>
+
+  <div id="footer"></div>
 
 </body>
 </html>

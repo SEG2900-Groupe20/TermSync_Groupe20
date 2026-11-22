@@ -10,12 +10,97 @@
   text-decoration: none;
 }
 
-/* Pied de page */
+/* Le conteneur du footer prend toute la largeur, même si le body de la page est en flex centré */
+#footer {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Footer commun (voir js/utils/footer.js) : même style que la navbar, identique sur toutes les pages */
 .site-footer {
-  padding: var(--espace-grand) 0;
-  border-top: 1px solid var(--couleur-bordure);
-  text-align: center;
-  color: var(--couleur-texte-doux);
+  /* Valeurs fixées ici : le footer est identique quelle que soit la page */
+  box-sizing: border-box;
+  width: 100%;
+  margin: auto 0 0;
+  padding: 48px 24px 24px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  color: #666666;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.site-footer *,
+.site-footer *::before,
+.site-footer *::after {
+  box-sizing: border-box;
+}
+
+.site-footer-interieur {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1192px;          /* = 1240 - 2 × 24 : aligné avec le contenu des pages */
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.footer-slogan {
+  margin: 12px 0 0;
+  max-width: 280px;
+}
+
+.footer-colonne {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-titre {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111019;
+}
+
+.footer-lien {
+  width: fit-content;
+  color: #666666;
+  text-decoration: none;
+}
+
+.footer-lien:hover {
+  color: #a41c1c;
+}
+
+.footer-lien:focus-visible {
+  outline: 2px solid #a41c1c;
+  outline-offset: 2px;
+}
+
+.footer-copyright {
+  max-width: 1192px;
+  margin: 32px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .site-footer-interieur {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-marque {
+    grid-column: 1 / -1;
+  }
 }
 
 /* Navbar commune (voir js/utils/navbar.js) : barre blanche, rouge réservé aux détails */
@@ -23,8 +108,8 @@
   --menu-texte: #111019;
   --menu-fond-survol: #f4f4f4;
   --menu-bordure: #e5e5e5;
-  --menu-actif: #dc2626;
-  --menu-actif-fonce: #b91c1c;
+  --menu-actif: #a41c1c;
+  --menu-actif-fonce: #861616;
   /* Valeurs fixées ici pour que le menu soit identique sur toutes les pages,
      quels que soient la police, l'interligne ou le reset de la page */
   box-sizing: border-box;
@@ -105,7 +190,7 @@
   background: #ffffff;
   color: var(--menu-actif);
   font-weight: bold;
-  box-shadow: 0 4px 12px -6px rgba(220, 38, 38, 0.5);
+  box-shadow: 0 4px 12px -6px rgba(164, 28, 28, 0.5);
 }
 
 /* Bouton d'action */
@@ -120,7 +205,7 @@
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.7);
+  box-shadow: 0 10px 20px -10px rgba(164, 28, 28, 0.7);
   transition: background 0.25s, transform 0.25s;
 }
 
@@ -190,7 +275,7 @@
     padding: 12px 20px 20px;
     background: #ffffff;
     border-bottom: 1px solid var(--menu-bordure);
-    box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+    box-shadow: 0 15px 35px rgba(164, 28, 28, 0.2);
   }
 
   .top-menu.ouvert .menu-liens {
@@ -220,6 +305,6 @@
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 10px 20px -10px rgba(220, 38, 38, 0.7);
+  box-shadow: 0 10px 20px -10px rgba(164, 28, 28, 0.7);
   transition: background 0.25s, transform 0.25s;
 }
