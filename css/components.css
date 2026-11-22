@@ -1,14 +1,4 @@
-/* Éléments réutilisables : boutons, cartes, formulaires, navbar (voir js/utils/navbar.js) */
-
-/* Bouton */
-.bouton {
-  display: inline-block;
-  padding: 10px 24px;
-  border-radius: var(--arrondi);
-  background-color: var(--couleur-accent);
-  color: var(--couleur-accent-texte);
-  text-decoration: none;
-}
+/* Éléments communs à toutes les pages : navbar (js/utils/navbar.js) et footer (js/utils/footer.js) */
 
 /* Le conteneur du footer prend toute la largeur, même si le body de la page est en flex centré */
 #footer {
@@ -292,19 +282,4 @@
   .menu-action {
     transition: none;
   }
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 24px;
-  border-radius: 999px;
-  background: var(--menu-actif);
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 10px 20px -10px rgba(164, 28, 28, 0.7);
-  transition: background 0.25s, transform 0.25s;
 }

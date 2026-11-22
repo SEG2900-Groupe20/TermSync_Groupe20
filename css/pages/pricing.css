@@ -1,5 +1,5 @@
 * {
-      box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -31,21 +31,27 @@ body {
 }
 
 .cards-viewport {
+  position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto; /* 允许横向程序化滚动 */
+  scrollbar-width: none; /* Firefox 隐藏滚动条 */
   padding: 30px 0;
+}
+
+.cards-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari 隐藏滚动条 */
 }
 
 .cards-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
-  width: 100%;
+  width: max-content; /* 让容器根据卡片数量自然撑开，避免向左溢出被裁剪 */
+  padding: 0 calc(50% - 160px); /* 左右各留出半个视口减去半张卡片的宽度，确保首尾卡片能居中 */
 }
 
 .card {
-  width: 280px;
+  width: 320px;
   min-height: 320px;
   border-radius: 24px;
   padding: 30px 24px;
@@ -59,11 +65,27 @@ body {
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 15px rgba(164, 28, 28, 0.05);
   flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card.side {
   opacity: 0.5;
   transform: scale(0.85);
+}
+
+/* Plans non sélectionnés : noir, sans rouge (le rouge est réservé au plan actif) */
+.card.side {
+  box-shadow: 0 4px 15px rgba(17, 16, 25, 0.05);
+}
+
+.card.side h3,
+.card.side .card-prix strong {
+  color: #111019;
+}
+
+.card.side .btn {
+  background: #111019;
 }
 
 .card.center {
@@ -77,6 +99,10 @@ body {
   margin: 0 0 15px 0;
   color: #a41c1c;
   font-size: 24px;
+}
+
+.card-content li {
+  white-space: nowrap;   /* chaque avantage tient sur une seule ligne */
 }
 
 .card-content {
@@ -97,6 +123,7 @@ body {
   cursor: pointer;
   background: #a41c1c;
   color: white;
+  transition: background 0.25s, opacity 0.25s;
 }
 
 /* 侧边未激活卡片禁用按钮点击 */
@@ -121,6 +148,8 @@ body {
   height: 6px;
   background: #e9bcbc;
   border-radius: 3px;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
 .dot.active {
@@ -147,11 +176,22 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover {
+  background: #a41c1c;
+  color: white;
 }
 
 @media (max-width: 768px) {
+  .card-content li {
+    white-space: normal;
+  }
   .cards-wrapper {
     flex-direction: column;
+    width: 100%;
+    padding: 0;
   }
   .card {
     width: 90%;
@@ -165,4 +205,17 @@ body {
     cursor: pointer;
     pointer-events: auto;
   }
+}
+
+/* Prix de chaque plan */
+.card-prix {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #4a4858;
+}
+
+.card-prix strong {
+  font-size: 24px;
+  color: #a41c1c;
 }

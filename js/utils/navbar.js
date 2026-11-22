@@ -6,7 +6,7 @@
 // (dans index.html à la racine : src="./js/utils/navbar.js")
 //
 // Pour ajouter ou renommer un lien, modifier la liste ci-dessous.
-// Le logo est l'image assets/logo/logo_termsync_recadre.png (voir creerLogo()).
+// Le logo est l'image assets/logo/Official_logo.png (voir creerLogo()).
 
 (function () {
   // Adresse de ce script : permet de retrouver la racine du site

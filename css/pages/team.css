@@ -10,64 +10,126 @@ body {
 }
 
 .page-title {
-text-align: center;
-color: #a41c1c;
-font-size: 42px;
-font-weight: bold;
-margin: 20px 0 35px;
+  text-align: center;
+  color: #a41c1c;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 20px 0 40px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 24px 60px;
 }
 
+/* Une carte par personne : la photo alterne de côté (idée de départ conservée) */
 .member-card {
   display: flex;
   align-items: center;
+  gap: 40px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
   background: white;
   border: 1px solid #e5e5e5;
-  border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 25px;
+  border-radius: 24px;
   box-shadow: 0 4px 15px rgba(164, 28, 28, 0.08);
-  gap: 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.member-card:nth-child(odd) {
-  flex-direction: row;
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px -18px rgba(164, 28, 28, 0.35);
 }
 
-.member-card:nth-child(even) {
+/* Première carte : photo à gauche, puis on alterne */
+.member-card:nth-of-type(odd) {
   flex-direction: row-reverse;
+  text-align: left;
+}
+
+.member-card:nth-of-type(even) {
+  flex-direction: row;
 }
 
 .member-text {
   flex: 1;
-  font-size: 16px;
+  min-width: 0;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   color: #4a4858;
-  line-height: 1.6;
 }
 
 .member-text h3 {
-  margin-top: 0;
+  margin: 0 0 6px;
   color: #a41c1c;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.member-text p {
+  margin: 0;
+}
+
+/* 1re ligne : rôle, en gras et en noir */
+.member-role {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #111019;
+}
+
+/* 2e ligne : accroche */
+.member-quote {
+  margin-top: 8px !important;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #4a4858;
+}
+
+/* 3e ligne : cursus, en petite pastille */
+.member-cursus {
+  display: inline-block;
+  margin-top: 16px !important;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #f8e3e3;
+  color: #a41c1c;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .member-pic {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   background-color: #f8e3e3;
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(164, 28, 28, 0.2);
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 0 1px #e9bcbc, 0 8px 20px rgba(164, 28, 28, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .member-pic:hover {
-  transform: scale(1.15);
-  box-shadow: 0 10px 25px rgba(164, 28, 28, 0.4), 0 0 15px rgba(164, 28, 28, 0.6);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 1px #a41c1c, 0 10px 25px rgba(164, 28, 28, 0.4);
+}
+
+@media (max-width: 640px) {
+  .page-title { font-size: 36px; }
+
+  .member-card,
+  .member-card:nth-of-type(odd),
+  .member-card:nth-of-type(even) {
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .member-pic { width: 130px; height: 130px; }
 }
